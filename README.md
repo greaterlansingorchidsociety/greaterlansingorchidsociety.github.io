@@ -1,0 +1,1 @@
+This site was set up by Mrs. Dorothy Barnett and Raechel Portelli on April 24, 2025. We transfered the domain name to GoDaddy, and are utilizng Github instead of IONOS web hosting for the site. The domain name for this site is greaterlansingorchidsociety.info as of this date. 
