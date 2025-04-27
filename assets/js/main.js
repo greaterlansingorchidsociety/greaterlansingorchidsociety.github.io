@@ -55,5 +55,17 @@ const showMenu = (toggleId, navId) =>{
    })
 }
 
+document.querySelectorAll('.year-header').forEach(header => {
+        header.addEventListener('click', () => {
+        const section = header.parentElement;
+        section.classList.toggle('active');
+                
+        // Change the + to - and vice versa
+        const indicator = header.querySelector('.year-indicator');
+        indicator.textContent = section.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+
 showMenu('nav-toggle','nav-menu')
 showSlides();
