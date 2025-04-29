@@ -16,7 +16,7 @@
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --black-color: hsl(312, 51%, 43%);
-  --black-color-light: hsl(306, 29%, 42%);
+  --black-color-light: hsl(305, 52%, 79%);
   --black-color-lighten: hsl(312, 100%, 50%);
   --white-color: #fff;
   --body-color: hsl(0, 0%, 100%);
@@ -496,6 +496,9 @@ a:hover {
 
 body {
   align-content: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   padding: 20px;
@@ -518,7 +521,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(38, 7, 7, 0.1);
 }
 
 .month {
@@ -532,13 +535,14 @@ body {
 
 .events-container {
   padding: 15px;
+
 }
 
 .cal-event {
   padding: 10px;
   margin-bottom: 10px;
   background-color: #f9f9f9;
-  border-left: 4px solid ;
+  border-left: 4px solid var(--black-color-light);
   border-radius: 4px;
 }
 
