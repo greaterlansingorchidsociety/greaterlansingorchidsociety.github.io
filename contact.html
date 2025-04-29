@@ -3,7 +3,20 @@
 <html>
     <head>
         <title>Greater Lansing Orchid Society (GLOS)</title>
-            
+            <style>        * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+          }
+          
+          body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              padding: 20px;
+              display: flex;
+              justify-content: center;
+              min-height: 100vh;
+          }</style>
         
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -29,6 +42,7 @@
         <nav class="nav container">
             <div class="nav__data">
                 <a href="index.html" class="nav__logo">GLOS</a>
+                <li><img src = "img/logo.png" style="height: 50px;"></li>
                   <div class="nav__toggle" id="nav-toggle">
                         <i class="ri-menu-line nav__burger"></i>
                         <i class="ri-close-line nav__close"></i>
@@ -36,11 +50,12 @@
             </div>
             <div class="nav__menu" id="nav-menu">
               <ul class="nav__list">
-                  <li><img src = "img/logo.jpg"></li>
                   <li><a href="index.html" class="nav__link">Home</a></li>
                   <li><a href="membership.html" class="nav__link">Membership</a></li>
                   <li><a href="news.html" class="nav__link">Newsletter</a></li>
-                  <li><a href="history.html" class="nav_link">History</a></li>
+                  <li><a href="history.html" class="nav__link">History</a></li>
+                  <li><a href="growing.html" class="nav__link">Additional Info</a></li>
+
                   <!--=============== DROPDOWN 1 ===============-->
                   <li class="dropdown__item">
                     <div class="nav__link"> Events <i class="ri-arrow-down-s-line dropdown__arrow"></i></div>
@@ -97,44 +112,51 @@
                   <H1>GLOS Board</H1>
                   <article>
                       <p>The current Greater Lansing Orchid Society Board Members are listed below.  </p>
-                      <div style="overflow-x:auto; width:auto; align-content: center; scroll-padding-top: 10px;">
-                        <table>
+                  </article>
+                  <div class="table-container">
+                    <table>
+                        <thead>
                             <tr>
                                 <th>Role</th>
                                 <th>Current Member</th>
                             </tr>
+                        </thead>
+                        <tbody>
                             <tr>
-                                <td>President </td>
-                                <td>Jerrie Nichols</td>
+                                <td data-label="Role">President</td>
+                                <td data-label="Current Member">Jerrie Nichols</td>
                             </tr>
                             <tr>
-                                <td>Vice President</td>
-                                <td>Dawn Kittle</td>
+                                <td data-label="Role">Vice President</td>
+                                <td data-label="Current Member">Dawn Kittle</td>
                             </tr>
                             <tr>
-                                <td>Secretary</td>
-                                <td>Doris Asher</td>
+                                <td data-label="Role">Secretary</td>
+                                <td data-label="Current Member">Doris Asher</td>
                             </tr>
                             <tr>
-                                <td>Treasurer</td>
-                                <td>Teresa Fowle</td>
+                                <td data-label="Role">Treasurer</td>
+                                <td data-label="Current Member">Teresa Fowle</td>
                             </tr>
                             <tr>
-                                <td>Past President</td>
-                                <td>Peter Oslund</td>
+                                <td data-label="Role">Directors</td>
+                                <td data-label="Current Member">Bill Cadman <br> Michele Bridges</td>
                             </tr>
                             <tr>
-                                <td>Newsletter Editor</td>
-                                <td>Dot Potter Barnett</td>
-                            </tr> 
+                                <td data-label="Role">Past President</td>
+                                <td data-label="Current Member">Peter Oslund</td>
+                            </tr>
                             <tr>
-                                <td>Away Show Chair</td>
-                                <td>Carol Ann Stuht</td>
-                            </tr> 
-                        </table>
-                      </div>
-                      </table>
-                  </article>
+                                <td data-label="Role">Newsletter Editor</td>
+                                <td data-label="Current Member">Dot Potter Barnett</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Role">Away Show Chair</td>
+                                <td data-label="Current Member">Carol Ann Stuht</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
           </section>
         </div>
 
