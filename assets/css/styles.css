@@ -1,6 +1,6 @@
 
 
-//*-- Navbar--*//
+/*-- Navbar--*/
 
 .separation {
    position: fixed;
@@ -16,8 +16,8 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --black-color: hsl(312, 51%, 43%);
-  --black-color-light: hsl(305, 52%, 79%);
+  --black-color: hsl(312, 97%, 12%);
+  --black-color-light: hsl(304, 70%, 39%);
   --black-color-lighten: hsl(313, 92%, 95%);
   --white-color: #fff;
   --body-color: hsl(0, 0%, 100%);
@@ -678,4 +678,3 @@ tr:hover {
   .table-container {
       box-shadow: none;
   }
-}
