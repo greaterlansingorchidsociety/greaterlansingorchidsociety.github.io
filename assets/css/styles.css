@@ -485,3 +485,86 @@ a:hover {
   float: right;
   font-weight: bold;
 }
+
+/*--CALENDAR--*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-content: center;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.calendar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.calendar-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.month-container {
+  flex: 1 0 calc(33.333% - 20px);
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.month {
+  background-color: var(--black-color);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.events-container {
+  padding: 15px;
+}
+
+.cal-event {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-left: 4px solid ;
+  border-radius: 4px;
+}
+
+.cal-event:last-child {
+  margin-bottom: 0;
+}
+
+.date {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .month-container {
+      flex: 1 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .month-container {
+      flex: 1 0 calc(100% - 20px);
+  }
+}
