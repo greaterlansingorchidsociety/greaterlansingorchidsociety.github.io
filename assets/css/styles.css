@@ -15,16 +15,16 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --black-color: hsl(220, 24%, 12%);
-  --black-color-light: hsl(220, 24%, 15%);
-  --black-color-lighten: hsl(220, 20%, 18%);
+  --black-color: hsl(312, 51%, 43%);
+  --black-color-light: hsl(306, 29%, 42%);
+  --black-color-lighten: hsl(312, 100%, 50%);
   --white-color: #fff;
-  --body-color: hsl(220, 100%, 97%);
+  --body-color: hsl(0, 0%, 100%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Sedan", sans-serif;
-  --normal-font-size: .938rem;
+  --normal-font-size: 4.5rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -38,7 +38,7 @@
 /*========== Responsive typography ==========*/
 @media screen and (min-width: 1024px) {
   :root {
-    --normal-font-size: 1rem;
+    --normal-font-size: 3.5rem;
   }
 }
 
@@ -87,12 +87,25 @@ a:hover {
   z-index: var(--z-fixed);
 }
 
+
+
+.center-div {
+  max-width: 30px;
+  max-width:fit-content;
+  text-align: center;
+}
+
 /*=============== NAV ===============*/
 .nav {
   height: var(--header-height);
 }
 
-.nav__logo, 
+.nav__logo {
+  color: var(--white-color);
+
+}
+
+
 .nav__burger, 
 .nav__close {
   color: var(--white-color);
@@ -441,13 +454,13 @@ a:hover {
   border-radius: 4px;
 }
 .year-header {
-  background-color: #f1f1f1;
+  background-color: #ffefef;
   padding: 10px 15px;
   cursor: pointer;
   user-select: none;
 }
 .year-header:hover {
-  background-color: #e8e8e8;
+  background-color: #fffce1;
 }
 .year-content {
   display: none;
