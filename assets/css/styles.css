@@ -37,15 +37,37 @@
 
 body {
   font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  background-color: var(--body-color);
   line-height: 1.6;
-  padding: 20px;
-  align-content: center;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
+  padding: 0; /* Remove the 20px padding from inline styles */
+  margin: 0; /* Reset margin */
+  font-size: 16px; /* Set a reasonable font size */
 }
+
+
+/* Center the main body content */
+.main-bod {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+  margin-top: 100px; /* Add space for the fixed navbar */
+}
+
+/* Update the center-div class to properly center text */
+.center-div {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Make slideshow container center properly */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: 0 auto 30px auto;
+}
+
 
 ul {
   list-style: none;
