@@ -1,31 +1,23 @@
-
-
-/*-- Navbar--*/
-
-.separation {
-   position: fixed;
-   top: 0px;
-}
+/*=============== IMPORTS & VARIABLES ===============*/
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Sedan:wght@400;600&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 3.5rem;
-
+  --header-height: 5.5rem;
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --black-color: hsl(312, 97%, 12%);
   --black-color-light: hsl(304, 70%, 39%);
   --black-color-lighten: hsl(313, 92%, 95%);
-  --white-color: #fff;
-  --body-color: hsl(0, 0%, 100%);
+  --white-color: #f4ecf3;
+  --body-color: hsl(332, 100%, 97%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Sedan", sans-serif;
-  --normal-font-size: 4.5rem;
+  --normal-font-size: 1rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -36,14 +28,7 @@
   --z-fixed: 100;
 }
 
-/*========== Responsive typography ==========*/
-@media screen and (min-width: 1024px) {
-  :root {
-    --normal-font-size: 3.5rem;
-  }
-}
-
-/*=============== BASE ===============*/
+/*=============== BASE STYLES ===============*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -52,9 +37,37 @@
 
 body {
   font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  background-color: var(--body-color);
+  line-height: 1.6;
+  padding: 0; /* Remove the 20px padding from inline styles */
+  margin: 0; /* Reset margin */
+  font-size: 16px; /* Set a reasonable font size */
 }
+
+
+/* Center the main body content */
+.main-bod {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+  margin-top: 100px; /* Add space for the fixed navbar */
+}
+
+/* Update the center-div class to properly center text */
+.center-div {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Make slideshow container center properly */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: 0 auto 30px auto;
+}
+
 
 ul {
   list-style: none;
@@ -76,40 +89,36 @@ a:hover {
   margin-inline: 1.5rem;
 }
 
-/*=============== HEADER ===============*/
+.center-div {
+  max-width: fit-content;
+  text-align: center;
+}
+
+.intro {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-left: 4px solid #3498db;
+}
+
+/*=============== HEADER & NAVIGATION ===============*/
 .header {
-  z-index: 1000;
+  z-index: var(--z-fixed);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: var(--black-color);
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
-  z-index: var(--z-fixed);
 }
 
-
-
-.center-div {
-  max-width: 30px;
-  max-width:fit-content;
-  text-align: center;
+.separation {
+  position: fixed;
+  top: 0px;
 }
 
 /*=============== NAV ===============*/
 .nav {
   height: var(--header-height);
-}
-
-.nav__logo {
-  color: var(--white-color);
-
-}
-
-
-.nav__burger, 
-.nav__close {
-  color: var(--white-color);
 }
 
 .nav__data {
@@ -124,6 +133,7 @@ a:hover {
   align-items: center;
   column-gap: .25rem;
   font-weight: var(--font-semi-bold);
+  color: var(--white-color);
   /* Color highlighting when pressed on mobile devices */
   /*-webkit-tap-highlight-color: transparent;*/
 }
@@ -149,32 +159,11 @@ a:hover {
   font-size: 1.25rem;
   cursor: pointer;
   transition: opacity .1s, transform .4s;
+  color: var(--white-color);
 }
 
 .nav__close {
   opacity: 0;
-}
-
-/* Navigation for mobile devices */
-@media screen and (max-width: 1118px) {
-  .nav__menu {
-    position: absolute;
-    left: 0;
-    top: 2.5rem;
-    width: 100%;
-    height: calc(100vh - 3.5rem);
-    overflow: auto;
-    pointer-events: none;
-    opacity: 0;
-    transition: top .4s, opacity .3s;
-  }
-  .nav__menu::-webkit-scrollbar {
-    width: 0;
-  }
-  .nav__list {
-    background-color: var(--black-color);
-    padding-top: 1rem;
-  }
 }
 
 .nav__link {
@@ -209,7 +198,37 @@ a:hover {
   transform: rotate(90deg);
 }
 
-/*=============== DROPDOWN ===============*/
+.nav__data {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.nav__toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.nav__burger, 
+.nav__close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
+}
+
+.nav__close {
+  opacity: 0;
+}
+
+/*=============== DROPDOWN MENU ===============*/
 .dropdown__item {
   cursor: pointer;
 }
@@ -250,6 +269,14 @@ a:hover {
   transition: max-height .4s ease-out;
 }
 
+.dropdown__add {
+  margin-left: auto;
+}
+
+.dropdown__sublink {
+  background-color: var(--black-color-lighten);
+}
+
 /* Show dropdown menu & submenu */
 .dropdown__item:hover .dropdown__menu, 
 .dropdown__subitem:hover > .dropdown__submenu {
@@ -262,107 +289,7 @@ a:hover {
   transform: rotate(180deg);
 }
 
-/*=============== DROPDOWN SUBMENU ===============*/
-.dropdown__add {
-  margin-left: auto;
-}
-
-.dropdown__sublink {
-  background-color: var(--black-color-lighten);
-}
-
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
-@media screen and (max-width: 340px) {
-  .container {
-    margin-inline: 1rem;
-  }
-
-  .nav__link {
-    padding-inline: 1rem;
-  }
-}
-
-/* For large devices */
-@media screen and (min-width: 1118px) {
-  .container {
-    margin-inline: auto;
-  }
-
-  .nav {
-    height: calc(var(--header-height) + 2rem);
-    display: flex;
-    justify-content: space-between;
-  }
-  .nav__toggle {
-    display: none;
-  }
-  .nav__list {
-    height: 100%;
-    display: flex;
-    column-gap: 3rem;
-  }
-  .nav__link {
-    height: 100%;
-    padding: 0;
-    justify-content: initial;
-    column-gap: .25rem;
-  }
-  .nav__link:hover {
-    background-color: transparent;
-  }
-
-  .dropdown__item, 
-  .dropdown__subitem {
-    position: relative;
-  }
-
-  .dropdown__menu, 
-  .dropdown__submenu {
-    max-height: initial;
-    overflow: initial;
-    position: absolute;
-    left: 0;
-    top: 6rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .3s, top .3s;
-  }
-
-  .dropdown__link, 
-  .dropdown__sublink {
-    padding-inline: 1rem 3.5rem;
-  }
-
-  .dropdown__subitem .dropdown__link {
-    padding-inline: 1rem;
-  }
-
-  .dropdown__submenu {
-    position: absolute;
-    left: 100%;
-    top: .5rem;
-  }
-
-  /* Show dropdown menu */
-  .dropdown__item:hover .dropdown__menu {
-    opacity: 1;
-    top: 5.5rem;
-    pointer-events: initial;
-    transition: top .3s;
-  }
-
-  /* Show dropdown submenu */
-  .dropdown__subitem:hover > .dropdown__submenu {
-    opacity: 1;
-    top: 0;
-    pointer-events: initial;
-    transition: top .3s;
-  }
-}
-
-* {box-sizing:border-box}
-
+/*=============== SLIDESHOW ===============*/
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
@@ -449,62 +376,47 @@ a:hover {
   to {opacity: 1}
 }
 
+/*=============== YEAR SECTION ===============*/
 .year-section {
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
+
 .year-header {
   background-color: #ffefef;
   padding: 10px 15px;
   cursor: pointer;
   user-select: none;
 }
+
 .year-header:hover {
   background-color: #fffce1;
 }
+
 .year-content {
   display: none;
   padding: 15px;
   border-top: 1px solid #ddd;
 }
+
 .active .year-content {
   display: block;
-}
-
-.intro {
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-left: 4px solid #3498db;
 
 }
 
 .pdf-icon:before {
   content: "📄 ";
 }
+
 .year-indicator {
   float: right;
+  max-width: 75%;
   font-weight: bold;
+
 }
 
-/*--CALENDAR--*/
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  align-content: center;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
-}
-
+/*=============== CALENDAR ===============*/
 .calendar-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -536,7 +448,6 @@ body {
 
 .events-container {
   padding: 15px;
-
 }
 
 .cal-event {
@@ -561,35 +472,7 @@ body {
   color: #666;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .month-container {
-      flex: 1 0 calc(50% - 20px);
-  }
-}
-
-@media (max-width: 600px) {
-  .month-container {
-      flex: 1 0 calc(100% - 20px);
-  }
-}
-
-/** Contacts Styles **/
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-}
-
+/*=============== CONTACTS TABLE ===============*/
 .table-container {
   max-width: 800px;
   width: 100%;
@@ -615,7 +498,8 @@ th {
 
 thead th {
   padding: 15px;
-  display:contents
+  display: contents;
+}
 
 td {
   padding: 12px 15px;
@@ -634,47 +518,183 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 600px) {
+/*=============== RESPONSIVE STYLES ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .nav__link {
+    padding-inline: 1rem;
+  }
+}
+
+/* For navigation on mobile devices */
+@media screen and (max-width: 1118px) {
+  .nav__menu {
+    position: absolute;
+    left: 0;
+    top: 2.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: top .4s, opacity .3s;
+  }
+  
+  .nav__menu::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .nav__list {
+    background-color: var(--black-color);
+    padding-top: 1rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav__toggle {
+    display: none;
+  }
+  
+  .nav__list {
+    height: 100%;
+    display: flex;
+    column-gap: 3rem;
+  }
+  
+  .nav__link {
+    height: 100%;
+    padding: 0;
+    justify-content: initial;
+    column-gap: .25rem;
+  }
+  
+  .nav__link:hover {
+    background-color: transparent;
+  }
+
+  .dropdown__item, 
+  .dropdown__subitem {
+    position: relative;
+  }
+
+  .dropdown__menu, 
+  .dropdown__submenu {
+    max-height: initial;
+    overflow: initial;
+    position: absolute;
+    left: 0;
+    top: 6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, top .3s;
+  }
+
+  .dropdown__link, 
+  .dropdown__sublink {
+    padding-inline: 1rem 3.5rem;
+  }
+
+  .dropdown__subitem .dropdown__link {
+    padding-inline: 1rem;
+  }
+
+  .dropdown__submenu {
+    position: absolute;
+    left: 100%;
+    top: .5rem;
+  }
+
+  /* Show dropdown menu */
+  .dropdown__item:hover .dropdown__menu {
+    opacity: 1;
+    top: 5.5rem;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+
+  /* Show dropdown submenu */
+  .dropdown__subitem:hover > .dropdown__submenu {
+    opacity: 1;
+    top: 0;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+}
+
+/* For calendar responsiveness */
+@media (max-width: 900px) {
+  .month-container {
+    flex: 1 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .month-container {
+    flex: 1 0 calc(100% - 20px);
+  }
+  
+  /* Table responsiveness */
   table {
-      border: 0;
+    border: 0;
   }
     
   tr {
-      margin-bottom: 15px;
-      display: block;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      overflow: hidden;
+    margin-bottom: 15px;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
   }
   
   tr:nth-child(even) {
-      background-color: #f9f9f9;
+    background-color: #f9f9f9;
   }
   
   td {
-      display: block;
-      text-align: right;
-      position: relative;
-      padding: 12px 15px 12px 50%;
-      border-bottom: 1px solid #eee;
+    display: block;
+    text-align: right;
+    position: relative;
+    padding: 12px 15px 12px 50%;
+    border-bottom: 1px solid #eee;
   }
   
   td:last-child {
-      border-bottom: 0;
+    border-bottom: 0;
   }
   
   td:before {
-      content: attr(data-label);
-      position: absolute;
-      left: 15px;
-      top: 12px;
-      font-weight: bold;
-      text-align: left;
-      color: #4a90e2;
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    font-weight: bold;
+    text-align: left;
+    color: #4a90e2;
   }
   
   .table-container {
-      box-shadow: none;
+    box-shadow: none;
   }
+}
