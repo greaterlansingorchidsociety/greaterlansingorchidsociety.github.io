@@ -53,7 +53,10 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  margin-bottom: 3rem; /* Adds space above the footer */
   margin-top: 100px; /* Add space for the fixed navbar */
+  flex: 1; /* Makes main content take available space */
+
 }
 
 /* Fix center-div class */
@@ -122,6 +125,10 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
@@ -746,3 +753,111 @@ tr:hover {
   .table-container {
       box-shadow: none;
   }
+
+  /* CSS for Footer */
+.footer {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  width: 100%;
+  clear: both;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 1.5rem;
+  padding-right: 20px;
+}
+
+.footer-section h3 {
+  color: var(--white-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--black-color-light);
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: var(--white-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--black-color-light);
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--black-color-light);
+  color: var(--white-color);
+  transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--black-color-light);
+  width: 100%;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .footer-section {
+    flex: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+  }
+}
