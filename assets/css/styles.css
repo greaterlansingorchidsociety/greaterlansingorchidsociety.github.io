@@ -48,6 +48,32 @@
   }
 }
 
+/* Navigation for mobile devices */
+@media screen and (max-width: 767px) {
+  .nav__link, 
+  .dropdown__link, 
+  .dropdown__sublink {
+    font-size: 18px; /* Larger font size for navigation items on mobile */
+    padding: 1.25rem 1.2rem; /* Maintain good touch targets */
+  }
+  
+  /* Make the dropdown arrow larger too */
+  .dropdown__arrow {
+    font-size: 1.5rem; /* Slightly larger than default 1.25rem */
+  }
+  
+  /* Make logo text larger */
+  .nav__logo {
+    font-size: 20px; /* Larger font size for the logo on mobile */
+  }
+  
+  /* Make burger and close icons larger */
+  .nav__burger, 
+  .nav__close {
+    font-size: 1.5rem; /* Increase from default 1.25rem */
+  }
+}
+
 /* Add main-bod class which was missing */
 .main-bod {
   max-width: 1200px;
