@@ -776,7 +776,7 @@ tr:hover {
 
  /* CSS for Footer */
 .footer {
- background-color: var(--black-color);
+
  color: var(--white-color);
  padding: 2rem 0;
  margin-top: 3rem;
@@ -785,6 +785,7 @@ tr:hover {
 }
 
 .footer-container {
+
  max-width: 1200px;
  margin: 0 auto;
  padding: 0 20px;
@@ -867,7 +868,7 @@ tr:hover {
 
 .footer-bottom p {
  font-size: 0.85rem;
- color: #ccc;
+ color: #e0d4d4;
 }
 
 /* Responsive adjustments */

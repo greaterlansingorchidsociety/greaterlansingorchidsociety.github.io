@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directions to Location</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.css" />
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        
+        #header {
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        #map {
+            flex-grow: 1;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input, button {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .info-box {
+            padding: 10px;
+            background: #e0f7fa;
+            border-radius: 4px;
+            margin-top: 10px;
+            border-left: 4px solid #00bcd4;
+        }
+        
+        @media (min-width: 768px) {
+            #controls {
+                flex-direction: row;
+                align-items: flex-end;
+            }
+            
+            .input-group {
+                flex-grow: 1;
+            }
+            
+            #get-directions-btn {
+                height: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>Getting to the Meetings</h1>
+        </div>
+        
+        <div id="controls">
+            <div class="input-group">
+                <label for="start-location">Starting Location:</label>
+                <input type="text" id="start-location" placeholder="Enter your address or use current location">
+            </div>
+            <div class="input-group">
+                <button id="use-current-location">Use My Location</button>
+            </div>
+            <div class="input-group">
+                <button id="get-directions-btn">Get Directions</button>
+            </div>
+        </div>
+        
+        <div id="map"></div>
+        
+        <div class="info-box">
+            <p>Our address: <strong id="destination-address">123 Main Street, Anytown, USA</strong></p>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    
+    <!-- Leaflet Routing Machine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
+    
+    <script>
+        // Configuration - CHANGE THESE VALUES
+        const DESTINATION_LAT = 42.8281127;  // Destination latitude
+        const DESTINATION_LNG = -84.7066518; // Destination longitude
+        const DESTINATION_NAME = "Wacousta Community United Methodist Church"; // Name of your location
+        const DESTINATION_ADDRESS = "9180 Herbison Rd, Eagle, MI 48822"; // Full address
+        
+        // Update the address in the info box
+        document.getElementById('destination-address').textContent = DESTINATION_ADDRESS;
+        
+        // Initialize map
+        const map = L.map('map').setView([DESTINATION_LAT, DESTINATION_LNG], 13);
+        
+        // Add the tile layer (map background)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // Add a marker for the destination
+        const destinationMarker = L.marker([DESTINATION_LAT, DESTINATION_LNG]).addTo(map)
+            .bindPopup(`<b>${DESTINATION_NAME}</b><br>${DESTINATION_ADDRESS}`)
+            .openPopup();
+        
+        // Initialize the routing control (hidden initially)
+        let routingControl = null;
+        
+        // Function to get directions
+        function getDirections(startLat, startLng) {
+            // Remove previous routing if it exists
+            if (routingControl) {
+                map.removeControl(routingControl);
+            }
+            
+            // Create new routing control
+            routingControl = L.Routing.control({
+                waypoints: [
+                    L.latLng(startLat, startLng),
+                    L.latLng(DESTINATION_LAT, DESTINATION_LNG)
+                ],
+                routeWhileDragging: true,
+                showAlternatives: true,
+                altLineOptions: {
+                    styles: [
+                        {color: 'black', opacity: 0.15, weight: 9},
+                        {color: 'white', opacity: 0.8, weight: 6},
+                        {color: 'blue', opacity: 0.5, weight: 2}
+                    ]
+                },
+                lineOptions: {
+                    styles: [
+                        {color: 'black', opacity: 0.15, weight: 9},
+                        {color: 'white', opacity: 0.8, weight: 6},
+                        {color: 'blue', opacity: 0.5, weight: 4}
+                    ]
+                }
+            }).addTo(map);
+            
+            // Fit map to show both points
+            const bounds = L.latLngBounds([
+                [startLat, startLng],
+                [DESTINATION_LAT, DESTINATION_LNG]
+            ]);
+            map.fitBounds(bounds, { padding: [50, 50] });
+        }
+        
+        // Handle "Use My Location" button
+        document.getElementById('use-current-location').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const startLat = position.coords.latitude;
+                        const startLng = position.coords.longitude;
+                        
+                        // Update the input field
+                        document.getElementById('start-location').value = "My Current Location";
+                        
+                        // Get directions
+                        getDirections(startLat, startLng);
+                    },
+                    function(error) {
+                        alert("Unable to get your location. Please enter your address manually.");
+                        console.error("Geolocation error:", error);
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser. Please enter your address manually.");
+            }
+        });
+        
+        // Handle "Get Directions" button (using geocoding)
+        document.getElementById('get-directions-btn').addEventListener('click', function() {
+            const startLocation = document.getElementById('start-location').value;
+            
+            if (startLocation === "My Current Location") {
+                // If they've already clicked "Use My Location", don't do anything
+                return;
+            }
+            
+            if (!startLocation.trim()) {
+                alert("Please enter a starting location or use current location.");
+                return;
+            }
+            
+            // Use Nominatim for geocoding (simple solution)
+            // Note: For production use, consider using a dedicated geocoding service with API key
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(startLocation)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        const location = data[0];
+                        getDirections(parseFloat(location.lat), parseFloat(location.lon));
+                    } else {
+                        alert("Location not found. Please try a different address.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Geocoding error:", error);
+                    alert("Error finding location. Please try again.");
+                });
+        });
+        
+        // Adjust map size when window is resized
+        window.addEventListener('resize', function() {
+            map.invalidateSize();
+        });
+    </script>
+</body>
+</html>
