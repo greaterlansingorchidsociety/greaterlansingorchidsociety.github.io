@@ -15,6 +15,14 @@ function showSlides() {
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
 
+    // Ensure slideIndex is within bounds
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    }
+    if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+    }
+
     // Hide all slides
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
@@ -31,11 +39,6 @@ function showSlides() {
 
     // Increment slideIndex AFTER displaying
     slideIndex++;
-
-    // Reset to 0 if exceeding the number of slides
-    if (slideIndex >= slides.length) {
-        slideIndex = 0;
-    }
 
     // Change slide every 3 seconds
     setTimeout(showSlides, 3000);
