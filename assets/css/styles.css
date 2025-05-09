@@ -1,3 +1,6 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Sedan:wght@400;600&display=swap");
+
 /*-- Navbar--*/
 
 .separation {
@@ -101,8 +104,7 @@
 
 
 
-/*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Sedan:wght@400;600&display=swap");
+
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -707,8 +709,9 @@ table {
 
 th {
  background-color: var(--black-color);
- color: white;
+ color: rgb(255, 255, 255);
  text-align: center;
+ 
  padding: 15px;
  font-size: 18px;
  font-weight: bold;
@@ -750,7 +753,7 @@ tr:hover {
  
  td {
      display: block;
-     text-align: right;
+     text-align: center;
      position: relative;
      padding: 12px 15px 12px 50%;
      border-bottom: 1px solid #eee;
@@ -766,7 +769,7 @@ tr:hover {
      left: 15px;
      top: 12px;
      font-weight: bold;
-     text-align: left;
+     text-align: center;
      color: #68007f;
  }
  

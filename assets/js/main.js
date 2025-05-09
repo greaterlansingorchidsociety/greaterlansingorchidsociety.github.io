@@ -38,7 +38,7 @@ function showSlides() {
     }
 
     // Change slide every 3 seconds
-    setTimeout(showSlides, 3000);
+    setTimeout(showSlides, 000);
 }
 
 /*=============== SHOW MENU ===============*/
