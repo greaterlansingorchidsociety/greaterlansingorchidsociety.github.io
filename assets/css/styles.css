@@ -171,7 +171,7 @@ a:hover {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
- max-width: 1120px;
+ max-width: max-content;
  margin-inline: 1.5rem;
 }
 
@@ -224,7 +224,7 @@ a:hover {
  column-gap: .25rem;
  font-weight: var(--font-semi-bold);
  /* Color highlighting when pressed on mobile devices */
- /*-webkit-tap-highlight-color: transparent;*/
+-webkit-tap-highlight-color: transparent;
 }
 
 .nav__logo i {
