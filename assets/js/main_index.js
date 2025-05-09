@@ -44,6 +44,21 @@ function showSlides() {
     setTimeout(showSlides, 3000);
 }
 
+// Next/previous controls
+function plusSlides(n) {
+    slideIndex += n;
+
+    // Ensure slideIndex is within bounds
+    if (slideIndex >= document.getElementsByClassName("mySlides").length) {
+        slideIndex = 0;
+    }
+    if (slideIndex < 0) {
+        slideIndex = document.getElementsByClassName("mySlides").length - 1;
+    }
+
+    showSlides();
+}
+
 /*=============== SHOW MENU ===============*/
 const showMenu = (toggleId, navId) => {
    const toggle = document.getElementById(toggleId),
