@@ -54,7 +54,7 @@
  .nav__link, 
  .dropdown__link, 
  .dropdown__sublink {
-   font-size: 18px; /* Larger font size for navigation items on mobile */
+   font-size: 28px; /* Larger font size for navigation items on mobile */
    padding: 1.25rem 1.2rem; /* Maintain good touch targets */
  }
  
@@ -114,7 +114,8 @@
 
  /*========== Font and typography ==========*/
  /*.5rem = 8px | 1rem = 16px ...*/
- --body-font: "Nunito", sans-serif;
+ --body-font: 'Nunito', sans-serif;
+ --alternative-font: 'Sedan', sans-serif;
  --normal-font-size: 4.5rem;
 
  /*========== Font weight ==========*/
@@ -124,6 +125,15 @@
  /*========== z index ==========*/
  --z-tooltip: 10;
  --z-fixed: 100;
+}
+
+/*=============== Links ===============*/
+a {
+ color: blue;
+ transition: color .3s;
+}
+a:hover {
+ color: greenyellow;
 }
 
 /*========== Responsive typography ==========*/
