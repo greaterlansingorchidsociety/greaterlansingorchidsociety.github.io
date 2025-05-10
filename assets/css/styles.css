@@ -15,7 +15,7 @@
  left: 0;
  width: 100%;
  background-color: var(--purple-color);
- box-shadow: 0 2px 16px hsla(222, 24%, 45%, 0.267);
+ box-shadow: 0 2px 16px hsla(0, 0%, 100%, 0.267);
  z-index: var(--z-fixed); /* Keep only this z-index */
 }
 
@@ -107,7 +107,7 @@
  /*========== Colors ==========*/
  /*Color mode HSL(hue, saturation, lightness)*/
  --purple-color: hsl(312, 100%, 24%);
- --purple-color-light: hsl(304, 37%, 68%);
+ --purple-color-light: hsl(304, 92%, 90%);
  --purple-color-lighten: hsl(313, 92%, 95%);
  --white-color: #fff;
  --body-color: hsl(0, 0%, 100%);
@@ -136,6 +136,10 @@ a:hover {
  color: greenyellow;
 }
 
+.large-icon {
+  font-size: 2rem; /* Adjust the size as needed */
+}
+
 /*========== Responsive typography ==========*/
 @media screen and (min-width: 1024px) {
  :root {
@@ -154,7 +158,6 @@ body {
  font-family: var(--body-font);
  font-size: var(--normal-font-size);
  background-color: var(--body-color);
-
  min-height: 100vh;
  display: flex;
  flex-direction: column;
@@ -800,8 +803,7 @@ tr:hover {
 
  /* CSS for Footer */
 .footer {
-
- color: var(--white-color);
+ background-color: var(--purple-color-light);
  padding: 2rem 0;
  margin-top: 3rem;
  width: 100%;
@@ -819,6 +821,7 @@ tr:hover {
 }
 
 .footer-section {
+  
  flex: 1;
  min-width: 250px;
  margin-bottom: 1.5rem;
@@ -1011,3 +1014,5 @@ tr:hover {
 
     }
 }
+
+/*CSS Nav bar adapted from work by Bejnjamin Huang (https://github.com/benjaminhuanghuang)*/
