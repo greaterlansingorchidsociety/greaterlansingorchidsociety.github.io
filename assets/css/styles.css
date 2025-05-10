@@ -14,7 +14,7 @@
  top: 0;
  left: 0;
  width: 100%;
- background-color: var(--black-color);
+ background-color: var(--purple-color);
  box-shadow: 0 2px 16px hsla(222, 24%, 45%, 0.267);
  z-index: var(--z-fixed); /* Keep only this z-index */
 }
@@ -31,14 +31,14 @@
    pointer-events: none;
    opacity: 0;
    transition: top .4s, opacity .3s;
-   background-color: var(--black-color); /* Add background color */
+   background-color: var(--purple-color); 
    z-index: 90; /* Ensure it appears above other content */
  }
  
  /* Fix dropdown display on mobile */
  .dropdown__menu {
    position: static; /* Keep dropdown in flow on mobile */
-   background-color: var(--black-color-light);
+   background-color: var(--purple-color-light);
    width: 100%;
  }
  
@@ -99,13 +99,6 @@
  --normal-font-size: 1rem; /* Change from 4.5rem to 1rem */
 }
 
-
-
-
-
-
-
-
 /*=============== VARIABLES CSS ===============*/
 :root {
  --header-height: 3.5rem;
@@ -113,9 +106,9 @@
 
  /*========== Colors ==========*/
  /*Color mode HSL(hue, saturation, lightness)*/
- --black-color: hsl(312, 100%, 24%);
- --black-color-light: hsl(304, 37%, 68%);
- --black-color-lighten: hsl(313, 92%, 95%);
+ --purple-color: hsl(312, 100%, 24%);
+ --purple-color-light: hsl(304, 37%, 68%);
+ --purple-color-lighten: hsl(313, 92%, 95%);
  --white-color: #fff;
  --body-color: hsl(0, 0%, 100%);
 
@@ -125,8 +118,8 @@
  --normal-font-size: 4.5rem;
 
  /*========== Font weight ==========*/
- --font-regular: 400;
- --font-semi-bold: 600;
+ --font-regular: 600;
+ --font-semi-bold: 800;
 
  /*========== z index ==========*/
  --z-tooltip: 10;
@@ -184,7 +177,7 @@ a:hover {
  top: 0;
  left: 0;
  width: 100%;
- background-color: var(--black-color);
+ background-color: var(--purple-color);
  box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
  z-index: var(--z-fixed);
 }
@@ -273,14 +266,14 @@ a:hover {
    width: 0;
  }
  .nav__list {
-   background-color: var(--black-color);
+   background-color: var(--purple-color);
    padding-top: 1rem;
  }
 }
 
 .nav__link {
  color:rgb(249, 229, 240) ;
- background-color: var(--black-color);
+ background-color: var(--purple-color);
  font-size: large;
  font-weight: var(--font-semi-bold);
  padding: 1.25rem 1.5rem;
@@ -291,7 +284,7 @@ a:hover {
 }
 
 .nav__link:hover {
- background-color: var(--black-color-light);
+ background-color: var(--purple-color-light);
  font: bolder;
 }
 
@@ -327,7 +320,7 @@ a:hover {
 .dropdown__sublink {
  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
  color: var(--white-color);
- background-color: var(--black-color-light);
+ background-color: var(--purple-color-light);
  display: flex;
  align-items: center;
  column-gap: .5rem;
@@ -343,7 +336,7 @@ a:hover {
 
 .dropdown__link:hover, 
 .dropdown__sublink:hover {
- background-color: var(--black-color);
+ background-color: var(--purple-color);
 }
 
 .dropdown__menu, 
@@ -371,7 +364,7 @@ a:hover {
 }
 
 .dropdown__sublink {
- background-color: var(--black-color-lighten);
+ background-color: var(--purple-color-lighten);
 }
 
 /*=============== BREAKPOINTS ===============*/
@@ -538,7 +531,7 @@ a:hover {
 }
 
 .active, .dot:hover {
- background-color: var(--black-color);
+ background-color: var(--purple-color);
 }
 
 /* Fading animation */
@@ -556,15 +549,18 @@ a:hover {
  margin-bottom: 15px;
  border: 1px solid #ddd;
  border-radius: 4px;
+ height: fit-content;
 }
 .year-header {
- background-color: #ffefef;
- padding: 10px 15px;
+ background-color: var(--purple-color);
+padding: 10px 15px;
  cursor: pointer;
  user-select: none;
+  font-weight: bold;
+  font-color: var(--white-color);
 }
 .year-header:hover {
- background-color: #fffce1;
+ background-color: var(--purple-color-light);
  transition: background-color 0.3s ease;
 }
 
@@ -579,17 +575,19 @@ a:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    height: fit-content;
+    padding-left: 0.5cm;
 }
 
 .active-content {
-    max-height: 1000px; /* Adjust as needed */
+    max-height: fit-content; /* Adjust as needed */
     overflow: visible; /* Ensure content is fully visible */
 }
 
 .intro {
  background-color: #f8f9fa;
  padding: 15px;
- border-left: 4px solid var(--black-color);
+ border-left: 4px solid var(--purple-color);
 
 }
 
@@ -640,7 +638,7 @@ body {
 }
 
 .month {
- background-color: var(--black-color);
+ background-color: var(--purple-color);
  color: white;
  padding: 12px;
  text-align: center;
@@ -657,7 +655,7 @@ body {
  padding: 10px;
  margin-bottom: 10px;
  background-color: #f9f9f9;
- border-left: 4px solid var(--black-color-light);
+ border-left: 4px solid var(--purple-color-light);
  border-radius: 4px;
 }
 
@@ -667,7 +665,8 @@ body {
 
 .date {
  font-weight: bold;
- margin-bottom: 5px;
+ font: 600;
+ margin-bottom: 10px;
 }
 
 .description {
@@ -719,7 +718,7 @@ table {
 }
 
 th {
- background-color: var(--black-color);
+ background-color: var(--purple-color);
  color: rgb(255, 255, 255);
  text-align: center;
  
@@ -820,7 +819,7 @@ tr:hover {
  font-size: 1.2rem;
  margin-bottom: 1rem;
  padding-bottom: 0.5rem;
- border-bottom: 1px solid var(--black-color-light);
+ border-bottom: 1px solid var(--purple-color-light);
 }
 
 .footer-section p {
@@ -845,7 +844,7 @@ tr:hover {
 }
 
 .footer-section a:hover {
- color: var(--black-color-light);
+ color: var(--purple-color-light);
  text-decoration: underline;
 }
 
@@ -862,21 +861,21 @@ tr:hover {
  width: 36px;
  height: 36px;
  border-radius: 50%;
- background-color: var(--black-color-light);
+ background-color: var(--purple-color-light);
  color: var(--white-color);
  transition: background-color 0.3s;
 }
 
 .social-icons a:hover {
  background-color: var(--white-color);
- color: var(--black-color);
+ color: var(--purple-color);
 }
 
 .footer-bottom {
  text-align: center;
  padding-top: 1.5rem;
  margin-top: 1.5rem;
- border-top: 1px solid var(--black-color-light);
+ border-top: 1px solid var(--purple-color-light);
  width: 100%;
 }
 
@@ -907,7 +906,7 @@ tr:hover {
 
 /* Decade headers - make them stand out */
 .time-line h2 {
- background-color: var(--black-color);
+ background-color: var(--purple-color);
  color: var(--white-color);
  padding: 12px 20px;
  margin: 30px 0 15px 0;
@@ -932,7 +931,7 @@ tr:hover {
 /* Make year and president stand out */
 .time-line .date {
  font-weight: bold;
- color: var(--black-color);
+ color: var(--purple-color);
  font-size: 18px;
  display: inline-block;
  margin-right: 10px;
@@ -940,7 +939,7 @@ tr:hover {
 
 .time-line .title {
  font-weight: bold;
- color: var(--black-color-light);
+ color: var(--purple-color-light);
 }
 
 /* Second level information */
@@ -998,5 +997,6 @@ tr:hover {
 
     .year-content {
         padding: 10px; /* Adjust padding for smaller screens */
+
     }
 }
