@@ -1,6 +1,6 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Sedan:wght@400;600&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 /*-- Navbar--*/
 
 .separation {
@@ -114,7 +114,7 @@
 
  /*========== Font and typography ==========*/
  /*.5rem = 8px | 1rem = 16px ...*/
- --body-font: "Sedan", sans-serif;
+ --body-font: "Nunito", sans-serif;
  --normal-font-size: 4.5rem;
 
  /*========== Font weight ==========*/
@@ -553,12 +553,13 @@ a:hover {
 }
 .year-header {
  background-color: var(--purple-color);
-padding: 10px 15px;
+   padding: 10px 15px;
  cursor: pointer;
  user-select: none;
-  font-weight: bold;
-  font-color: var(--white-color);
+ font-weight: bold;
+  color: var(--white-color);
 }
+
 .year-header:hover {
  background-color: var(--purple-color-light);
  transition: background-color 0.3s ease;
