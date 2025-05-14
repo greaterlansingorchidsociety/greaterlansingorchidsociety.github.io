@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Gallery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 15px;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            position: relative;
+            background-color: #eee;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-caption {
+            padding: 10px;
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            background-color: #fff;
+        }
+        
+        /* Lightbox styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80%;
+        }
+        
+        .lightbox-img {
+            display: block;
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 3px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .lightbox-nav button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 3px;
+            margin: 0 20px;
+        }
+        
+        .lightbox-nav button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .gallery-item-image {
+                height: 150px;
+            }
+            
+            .gallery-item-caption {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <h1>Image Gallery</h1>
+        
+        <div class="gallery" id="gallery">
+            <!-- Gallery items will be created dynamically -->
+        </div>
+    </div>
+    
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">×</button>
+            <img src="" alt="" class="lightbox-img" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+            <div class="lightbox-nav">
+                <button id="prev-btn">◀</button>
+                <button id="next-btn">▶</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Sample image data - replace with your own images and captions
+        const imageData = [
+            {
+                src: "/api/placeholder/800/600",
+                alt: "Image 1",
+                caption: "Beautiful landscape view"
+            },
+            {
+                src: "/api/placeholder/800/600",
+                alt: "Image 2",
+                caption: "City skyline at night"
+            },
+            {
+                src: "/api/placeholder/800/600", 
+                alt: "Image 3",
+                caption: "Mountain panorama"
+            },
+            {
+                src: "/api/placeholder/800/600",
+                alt: "Image 4", 
+                caption: "Autumn forest path"
+            },
+            {
+                src: "/api/placeholder/800/600",
+                alt: "Image 5",
+                caption: "Sunset at the beach"
+            },
+            {
+                src: "/api/placeholder/800/600",
+                alt: "Image 6",
+                caption: "Winter wonderland"
+            },
+            {
+                src: "/api/placeholder/800/600",
+                alt: "Image 7",
+                caption: "Urban architecture"
+            },
+            {
+                src: "/api/placeholder/800/600",
+                alt: "Image 8",
+                caption: "Flower garden"
+            }
+        ];
+
+        // Populate gallery with images
+        const gallery = document.getElementById('gallery');
+        
+        imageData.forEach((image, index) => {
+            const galleryItem = document.createElement('div');
+            galleryItem.classList.add('gallery-item');
+            galleryItem.setAttribute('data-index', index);
+            
+            const imageContainer = document.createElement('div');
+            imageContainer.classList.add('gallery-item-image');
+            
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.alt = image.alt;
+            
+            const caption = document.createElement('div');
+            caption.classList.add('gallery-item-caption');
+            caption.textContent = image.caption;
+            
+            imageContainer.appendChild(img);
+            galleryItem.appendChild(imageContainer);
+            galleryItem.appendChild(caption);
+            gallery.appendChild(galleryItem);
+            
+            // Add click event to open lightbox
+            galleryItem.addEventListener('click', () => openLightbox(index));
+        });
+        
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        let currentIndex = 0;
+        
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightboxContent();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+        }
+        
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+        
+        function updateLightboxContent() {
+            const image = imageData[currentIndex];
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.alt;
+            lightboxCaption.textContent = image.caption;
+        }
+        
+        function showPrevImage() {
+            currentIndex = (currentIndex - 1 + imageData.length) % imageData.length;
+            updateLightboxContent();
+        }
+        
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % imageData.length;
+            updateLightboxContent();
+        }
+        
+        // Event listeners
+        lightboxClose.addEventListener('click', closeLightbox);
+        prevBtn.addEventListener('click', showPrevImage);
+        nextBtn.addEventListener('click', showNextImage);
+        
+        // Close lightbox when clicking outside image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevImage();
+            } else if (e.key === 'ArrowRight') {
+                showNextImage();
+            }
+        });
+    </script>
+</body>
+</html>
