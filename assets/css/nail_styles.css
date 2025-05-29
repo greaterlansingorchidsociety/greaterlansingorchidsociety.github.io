@@ -1,6 +1,6 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Sedan:wght@400;600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 /*-- Navbar--*/
 
 .separation {
@@ -14,8 +14,8 @@
  top: 0;
  left: 0;
  width: 100%;
- background-color: var(--purple-color);
- box-shadow: 0 2px 16px hsla(0, 0%, 100%, 0.267);
+ background-color: var(--black-color);
+ box-shadow: 0 2px 16px hsla(222, 24%, 45%, 0.267);
  z-index: var(--z-fixed); /* Keep only this z-index */
 }
 
@@ -31,14 +31,14 @@
    pointer-events: none;
    opacity: 0;
    transition: top .4s, opacity .3s;
-   background-color: var(--purple-color); 
+   background-color: var(--black-color); /* Add background color */
    z-index: 90; /* Ensure it appears above other content */
  }
  
  /* Fix dropdown display on mobile */
  .dropdown__menu {
    position: static; /* Keep dropdown in flow on mobile */
-   background-color: var(--purple-color-light);
+   background-color: var(--black-color-light);
    width: 100%;
  }
  
@@ -54,7 +54,7 @@
  .nav__link, 
  .dropdown__link, 
  .dropdown__sublink {
-   font-size: 28px; /* Larger font size for navigation items on mobile */
+   font-size: 18px; /* Larger font size for navigation items on mobile */
    padding: 1.25rem 1.2rem; /* Maintain good touch targets */
  }
  
@@ -106,38 +106,24 @@
 
  /*========== Colors ==========*/
  /*Color mode HSL(hue, saturation, lightness)*/
- --purple-color: hsl(312, 100%, 24%);
- --purple-color-light: hsl(304, 92%, 90%);
- --purple-color-lighten: hsl(313, 92%, 95%);
+ --black-color: hsl(61, 100%, 53%);
+ --black-color-light: hsl(304, 37%, 68%);
+ --black-color-lighten: hsl(313, 92%, 95%);
  --white-color: #fff;
  --body-color: hsl(0, 0%, 100%);
 
  /*========== Font and typography ==========*/
  /*.5rem = 8px | 1rem = 16px ...*/
- --body-font: 'Nunito', sans-serif;
- --alternative-font: 'Sedan', sans-serif;
+ --body-font: "Sedan", sans-serif;
  --normal-font-size: 4.5rem;
 
  /*========== Font weight ==========*/
- --font-regular: 600;
- --font-semi-bold: 800;
+ --font-regular: 400;
+ --font-semi-bold: 600;
 
  /*========== z index ==========*/
  --z-tooltip: 10;
  --z-fixed: 100;
-}
-
-/*=============== Links ===============*/
-a {
- color: blue;
- transition: color .3s;
-}
-a:hover {
- color: greenyellow;
-}
-
-.large-icon {
-  font-size: 2rem; /* Adjust the size as needed */
 }
 
 /*========== Responsive typography ==========*/
@@ -158,6 +144,7 @@ body {
  font-family: var(--body-font);
  font-size: var(--normal-font-size);
  background-color: var(--body-color);
+
  min-height: 100vh;
  display: flex;
  flex-direction: column;
@@ -190,7 +177,7 @@ a:hover {
  top: 0;
  left: 0;
  width: 100%;
- background-color: var(--purple-color);
+ background-color: var(--black-color);
  box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
  z-index: var(--z-fixed);
 }
@@ -279,14 +266,14 @@ a:hover {
    width: 0;
  }
  .nav__list {
-   background-color: var(--purple-color);
+   background-color: var(--black-color);
    padding-top: 1rem;
  }
 }
 
 .nav__link {
  color:rgb(249, 229, 240) ;
- background-color: var(--purple-color);
+ background-color: var(--black-color);
  font-size: large;
  font-weight: var(--font-semi-bold);
  padding: 1.25rem 1.5rem;
@@ -297,7 +284,7 @@ a:hover {
 }
 
 .nav__link:hover {
- background-color: var(--purple-color-light);
+ background-color: var(--black-color-light);
  font: bolder;
 }
 
@@ -333,7 +320,7 @@ a:hover {
 .dropdown__sublink {
  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
  color: var(--white-color);
- background-color: var(--purple-color-light);
+ background-color: var(--black-color-light);
  display: flex;
  align-items: center;
  column-gap: .5rem;
@@ -349,7 +336,7 @@ a:hover {
 
 .dropdown__link:hover, 
 .dropdown__sublink:hover {
- background-color: var(--purple-color);
+ background-color: var(--black-color);
 }
 
 .dropdown__menu, 
@@ -377,7 +364,7 @@ a:hover {
 }
 
 .dropdown__sublink {
- background-color: var(--purple-color-lighten);
+ background-color: var(--black-color-lighten);
 }
 
 /*=============== BREAKPOINTS ===============*/
@@ -419,7 +406,6 @@ a:hover {
  }
  .nav__link:hover {
    background-color: transparent;
-   color: var(--purple-color-light)
  }
 
  .dropdown__item, 
@@ -545,7 +531,7 @@ a:hover {
 }
 
 .active, .dot:hover {
- background-color: var(--purple-color);
+ background-color: var(--black-color);
 }
 
 /* Fading animation */
@@ -563,19 +549,15 @@ a:hover {
  margin-bottom: 15px;
  border: 1px solid #ddd;
  border-radius: 4px;
- height: fit-content;
 }
 .year-header {
- background-color: var(--purple-color);
-   padding: 10px 15px;
+ background-color: #ffefef;
+ padding: 10px 15px;
  cursor: pointer;
  user-select: none;
- font-weight: bold;
-  color: var(--white-color);
 }
-
 .year-header:hover {
- background-color: var(--purple-color-light);
+ background-color: #fffce1;
  transition: background-color 0.3s ease;
 }
 
@@ -590,19 +572,17 @@ a:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    height: fit-content;
-    padding-left: 0.5cm;
 }
 
 .active-content {
-    max-height: fit-content; /* Adjust as needed */
+    max-height: 1000px; /* Adjust as needed */
     overflow: visible; /* Ensure content is fully visible */
 }
 
 .intro {
  background-color: #f8f9fa;
  padding: 15px;
- border-left: 4px solid var(--purple-color);
+ border-left: 4px solid var(--black-color);
 
 }
 
@@ -653,7 +633,7 @@ body {
 }
 
 .month {
- background-color: var(--purple-color);
+ background-color: var(--black-color);
  color: white;
  padding: 12px;
  text-align: center;
@@ -670,7 +650,7 @@ body {
  padding: 10px;
  margin-bottom: 10px;
  background-color: #f9f9f9;
- border-left: 4px solid var(--purple-color-light);
+ border-left: 4px solid var(--black-color-light);
  border-radius: 4px;
 }
 
@@ -680,8 +660,7 @@ body {
 
 .date {
  font-weight: bold;
- font: 600;
- margin-bottom: 10px;
+ margin-bottom: 5px;
 }
 
 .description {
@@ -733,7 +712,7 @@ table {
 }
 
 th {
- background-color: var(--purple-color);
+ background-color: var(--black-color);
  color: rgb(255, 255, 255);
  text-align: center;
  
@@ -804,7 +783,8 @@ tr:hover {
 
  /* CSS for Footer */
 .footer {
- background-color: var(--purple-color-light);
+
+ color: var(--white-color);
  padding: 2rem 0;
  margin-top: 3rem;
  width: 100%;
@@ -822,7 +802,6 @@ tr:hover {
 }
 
 .footer-section {
-  
  flex: 1;
  min-width: 250px;
  margin-bottom: 1.5rem;
@@ -834,7 +813,7 @@ tr:hover {
  font-size: 1.2rem;
  margin-bottom: 1rem;
  padding-bottom: 0.5rem;
- border-bottom: 1px solid var(--purple-color-light);
+ border-bottom: 1px solid var(--black-color-light);
 }
 
 .footer-section p {
@@ -859,7 +838,7 @@ tr:hover {
 }
 
 .footer-section a:hover {
- color: var(--purple-color-light);
+ color: var(--black-color-light);
  text-decoration: underline;
 }
 
@@ -876,21 +855,21 @@ tr:hover {
  width: 36px;
  height: 36px;
  border-radius: 50%;
- background-color: var(--purple-color-light);
+ background-color: var(--black-color-light);
  color: var(--white-color);
  transition: background-color 0.3s;
 }
 
 .social-icons a:hover {
  background-color: var(--white-color);
- color: var(--purple-color);
+ color: var(--black-color);
 }
 
 .footer-bottom {
  text-align: center;
  padding-top: 1.5rem;
  margin-top: 1.5rem;
- border-top: 1px solid var(--purple-color-light);
+ border-top: 1px solid var(--black-color-light);
  width: 100%;
 }
 
@@ -921,7 +900,7 @@ tr:hover {
 
 /* Decade headers - make them stand out */
 .time-line h2 {
- background-color: var(--purple-color);
+ background-color: var(--black-color);
  color: var(--white-color);
  padding: 12px 20px;
  margin: 30px 0 15px 0;
@@ -946,7 +925,7 @@ tr:hover {
 /* Make year and president stand out */
 .time-line .date {
  font-weight: bold;
- color: var(--purple-color);
+ color: var(--black-color);
  font-size: 18px;
  display: inline-block;
  margin-right: 10px;
@@ -954,7 +933,7 @@ tr:hover {
 
 .time-line .title {
  font-weight: bold;
- color: var(--purple-color-light);
+ color: var(--black-color-light);
 }
 
 /* Second level information */
@@ -1012,8 +991,5 @@ tr:hover {
 
     .year-content {
         padding: 10px; /* Adjust padding for smaller screens */
-
     }
 }
-
-/*CSS Nav bar adapted from work by Bejnjamin Huang (https://github.com/benjaminhuanghuang)*/
