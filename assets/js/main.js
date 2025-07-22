@@ -96,7 +96,7 @@ function startAutoSlide() {
     autoSlideTimer = setTimeout(() => {
         nextSlide();
         startAutoSlide(); // Continue the cycle
-    }, 2000); // Change slide every 4 seconds
+    }, 4000); // Change slide every 4 seconds
 }
 
 /*=============== SHOW MENU ===============*/
