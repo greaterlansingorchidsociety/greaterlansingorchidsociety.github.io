@@ -36,31 +36,34 @@ function initSlideshow() {
 function showSlides(n) {
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
-
+    
     if (n > slides.length) {
         slideIndex = 1;
     }
     if (n < 1) {
         slideIndex = slides.length;
     }
-
-    // Only toggle active class
+    
+    // Hide all slides and remove active class
     for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
         slides[i].classList.remove("active");
     }
-
+    
+    // Remove active class from all dots
     for (let i = 0; i < dots.length; i++) {
         dots[i].classList.remove("active");
     }
-
+    
+    // Show current slide and activate corresponding dot
     if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].style.display = "block";
         slides[slideIndex - 1].classList.add("active");
     }
     if (dots[slideIndex - 1]) {
         dots[slideIndex - 1].classList.add("active");
     }
 }
-
 
 // Next/previous controls - THIS FUNCTION NAME MUST MATCH YOUR HTML
 function plusSlides(n) {
