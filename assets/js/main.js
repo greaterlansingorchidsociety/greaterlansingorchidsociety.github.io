@@ -1,3 +1,78 @@
+/*=============== IMAGE SLIDESHOW ===============*/
+let slideIndex = 1;
+let autoSlideTimer;
+
+// Initialize slideshow
+function initSlideshow() {
+    showSlides(slideIndex);
+    startAutoSlide();
+}
+
+// Main function to show slides
+function showSlides(n) {
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    
+    // Hide all slides
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    
+    // Remove active class from all dots
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    
+    // Show current slide and activate corresponding dot
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].style.display = "block";
+    }
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].className += " active";
+    }
+}
+
+// Next/previous controls
+function plusSlides(n) {
+    // Stop auto-advance when user manually navigates
+    clearTimeout(autoSlideTimer);
+    slideIndex += n;
+    showSlides(slideIndex);
+    // Restart auto-advance after user interaction
+    startAutoSlide();
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    // Stop auto-advance when user clicks a dot
+    clearTimeout(autoSlideTimer);
+    slideIndex = n;
+    showSlides(slideIndex);
+    // Restart auto-advance after user interaction
+    startAutoSlide();
+}
+
+// Auto-advance function
+function nextSlide() {
+    slideIndex++;
+    showSlides(slideIndex);
+}
+
+// Start auto-advance timer
+function startAutoSlide() {
+    autoSlideTimer = setTimeout(() => {
+        nextSlide();
+        startAutoSlide(); // Continue the cycle
+    }, 4000); // Change slide every 4 seconds
+}
+
 /*=============== SHOW MENU ===============*/
 const showMenu = (toggleId, navId) => {
    const toggle = document.getElementById(toggleId),
@@ -18,6 +93,9 @@ showMenu('nav-toggle', 'nav-menu');
 
 /*=============== YEAR HEADER TOGGLE ===============*/
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize slideshow when DOM is loaded
+    initSlideshow();
+    
     // Select all year headers
     const yearHeaders = document.querySelectorAll('.year-header');
 
