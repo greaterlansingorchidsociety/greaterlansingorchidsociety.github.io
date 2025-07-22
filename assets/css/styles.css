@@ -802,9 +802,10 @@ tr:hover {
      box-shadow: none;
  }
 
- /* CSS for Footer */
+ 
+/*=============== FOOTER ===============*/
 .footer {
- background-color: var(--purple-color-light);
+ color: var(--white-color);
  padding: 2rem 0;
  margin-top: 3rem;
  width: 100%;
@@ -812,7 +813,6 @@ tr:hover {
 }
 
 .footer-container {
-
  max-width: 1200px;
  margin: 0 auto;
  padding: 0 20px;
@@ -822,7 +822,6 @@ tr:hover {
 }
 
 .footer-section {
-  
  flex: 1;
  min-width: 250px;
  margin-bottom: 1.5rem;
@@ -834,7 +833,7 @@ tr:hover {
  font-size: 1.2rem;
  margin-bottom: 1rem;
  padding-bottom: 0.5rem;
- border-bottom: 1px solid var(--purple-color-light);
+ border-bottom: 1px solid var(--black-color-light);
 }
 
 .footer-section p {
@@ -859,7 +858,7 @@ tr:hover {
 }
 
 .footer-section a:hover {
- color: var(--purple-color-light);
+ color: var(--black-color-light);
  text-decoration: underline;
 }
 
@@ -876,21 +875,21 @@ tr:hover {
  width: 36px;
  height: 36px;
  border-radius: 50%;
- background-color: var(--purple-color-light);
+ background-color: var(--black-color-light);
  color: var(--white-color);
  transition: background-color 0.3s;
 }
 
 .social-icons a:hover {
  background-color: var(--white-color);
- color: var(--purple-color);
+ color: var(--black-color);
 }
 
 .footer-bottom {
  text-align: center;
  padding-top: 1.5rem;
  margin-top: 1.5rem;
- border-top: 1px solid var(--purple-color-light);
+ border-top: 1px solid var(--black-color-light);
  width: 100%;
 }
 
