@@ -35,21 +35,33 @@ function showSlides(n) {
         slideIndex = slides.length;
     }
     
-    // Use opacity instead of display to avoid gaps
-    // First, set all slides to be visible but transparent
+    // Find the currently visible slide
+    let currentlyVisible = -1;
     for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "block";
-        slides[i].style.opacity = "0";
-        slides[i].classList.remove("active");
+        if (slides[i].style.display === "block") {
+            currentlyVisible = i;
+            break;
+        }
     }
     
-    // Then make only the current slide visible
+    // Show the new slide first
     if (slides[slideIndex - 1]) {
-        slides[slideIndex - 1].style.opacity = "1";
+        slides[slideIndex - 1].style.display = "block";
         slides[slideIndex - 1].classList.add("active");
     }
     
-    // Remove active class from all dots, then activate current dot
+    // Use requestAnimationFrame to ensure the new slide renders before hiding the old one
+    requestAnimationFrame(() => {
+        // Now hide all other slides
+        for (let i = 0; i < slides.length; i++) {
+            if (i !== slideIndex - 1) {
+                slides[i].style.display = "none";
+                slides[i].classList.remove("active");
+            }
+        }
+    });
+    
+    // Update dots
     for (let i = 0; i < dots.length; i++) {
         dots[i].classList.remove("active");
     }
