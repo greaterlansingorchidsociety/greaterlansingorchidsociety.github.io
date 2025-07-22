@@ -1,115 +1,9 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Sedan:wght@400;600&display=swap");
 
-/*-- Navbar--*/
-
-.separation {
-  position: fixed;
-  top: 0px;
-}
-
-/* Fix the z-index issue by removing the duplicate declaration */
-.header {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- background-color: var(--black-color);
- box-shadow: 0 2px 16px hsla(222, 24%, 45%, 0.267);
- z-index: var(--z-fixed); /* Keep only this z-index */
-}
-
-/* Improve mobile menu styling */
-@media screen and (max-width: 1118px) {
- .nav__menu {
-   position: absolute;
-   left: 0;
-   top: 2.5rem;
-   width: 100%;
-   height: calc(100vh - 3.5rem);
-   overflow: auto;
-   pointer-events: none;
-   opacity: 0;
-   transition: top .4s, opacity .3s;
-   background-color: var(--black-color); /* Add background color */
-   z-index: 90; /* Ensure it appears above other content */
- }
- 
- /* Fix dropdown display on mobile */
- .dropdown__menu {
-   position: static; /* Keep dropdown in flow on mobile */
-   background-color: var(--black-color-light);
-   width: 100%;
- }
- 
- /* Show dropdown menu & submenu - mobile specific */
- .dropdown__item.active .dropdown__menu {
-   max-height: 1000px;
-   transition: max-height .4s ease-in;
- }
-}
-
-/* Navigation for mobile devices */
-@media screen and (max-width: 767px) {
- .nav__link, 
- .dropdown__link, 
- .dropdown__sublink {
-   font-size: 18px; /* Larger font size for navigation items on mobile */
-   padding: 1.25rem 1.2rem; /* Maintain good touch targets */
- }
- 
- /* Make the dropdown arrow larger too */
- .dropdown__arrow {
-   font-size: 1.5rem; /* Slightly larger than default 1.25rem */
- }
- 
- /* Make logo text larger */
- .nav__logo {
-   font-size: 20px; /* Larger font size for the logo on mobile */
- }
- 
- /* Make burger and close icons larger */
- .nav__burger, 
- .nav__close {
-   font-size: 1.5rem; /* Increase from default 1.25rem */
- }
-}
-
-/* Add main-bod class which was missing */
-.main-bod {
- max-width: 1200px;
- margin: 0 auto;
- padding: 0 20px;
- margin-bottom: 3rem; /* Adds space above the footer */
- margin-top: 100px; /* Add space for the fixed navbar */
- flex: 1; /* Makes main content take available space */
-
-}
-
-/* Fix center-div class */
-.center-div {
- max-width: none; /* Remove conflicting max-width values */
- width: 100%;
- text-align: center;
- margin: 0 auto;
-}
-
-/* Fix the font size in root to be more reasonable */
-:root {
- --normal-font-size: 1rem; /* Change from 4.5rem to 1rem */
-}
-
-
-
-
-
-
-
-
 /*=============== VARIABLES CSS ===============*/
 :root {
  --header-height: 3.5rem;
-
 
  /*========== Colors ==========*/
  /*Color mode HSL(hue, saturation, lightness)*/
@@ -122,7 +16,7 @@
  /*========== Font and typography ==========*/
  /*.5rem = 8px | 1rem = 16px ...*/
  --body-font: "Sedan", sans-serif;
- --normal-font-size: 4.5rem;
+ --normal-font-size: 1rem;
 
  /*========== Font weight ==========*/
  --font-regular: 400;
@@ -136,7 +30,7 @@
 /*========== Responsive typography ==========*/
 @media screen and (min-width: 1024px) {
  :root {
-   --normal-font-size: 2m;
+   --normal-font-size: 1.2rem;
  }
 }
 
@@ -151,7 +45,6 @@ body {
  font-family: var(--body-font);
  font-size: var(--normal-font-size);
  background-color: var(--body-color);
-
  min-height: 100vh;
  display: flex;
  flex-direction: column;
@@ -159,8 +52,6 @@ body {
 
 ul {
  list-style: none;
- /* Color highlighting when pressed on mobile devices */
- /*-webkit-tap-highlight-color: transparent;*/
 }
 
 a {
@@ -179,7 +70,6 @@ a:hover {
 
 /*=============== HEADER ===============*/
 .header {
- z-index: 1000;
  position: fixed;
  top: 0;
  left: 0;
@@ -189,12 +79,21 @@ a:hover {
  z-index: var(--z-fixed);
 }
 
-
+/*=============== MAIN CONTENT ===============*/
+.main-bod {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 20px;
+ margin-bottom: 3rem;
+ margin-top: 100px;
+ flex: 1;
+}
 
 .center-div {
- max-width: 30px;
- max-width:fit-content;
+ width: 100%;
  text-align: center;
+ margin: 0 auto;
+ max-width: fit-content;
 }
 
 /*=============== NAV ===============*/
@@ -204,9 +103,7 @@ a:hover {
 
 .nav__logo {
  color: var(--white-color);
-
 }
-
 
 .nav__burger, 
 .nav__close {
@@ -225,8 +122,7 @@ a:hover {
  align-items: center;
  column-gap: .25rem;
  font-weight: var(--font-semi-bold);
- /* Color highlighting when pressed on mobile devices */
--webkit-tap-highlight-color: transparent;
+ -webkit-tap-highlight-color: transparent;
 }
 
 .nav__logo i {
@@ -268,18 +164,58 @@ a:hover {
    pointer-events: none;
    opacity: 0;
    transition: top .4s, opacity .3s;
+   background-color: var(--black-color);
+   z-index: 90;
  }
+ 
  .nav__menu::-webkit-scrollbar {
    width: 0;
  }
+ 
  .nav__list {
    background-color: var(--black-color);
    padding-top: 1rem;
  }
+ 
+ /* Fix dropdown display on mobile */
+ .dropdown__menu {
+   position: static;
+   background-color: var(--black-color-light);
+   width: 100%;
+ }
+ 
+ /* Show dropdown menu & submenu - mobile specific */
+ .dropdown__item.active .dropdown__menu {
+   max-height: 1000px;
+   transition: max-height .4s ease-in;
+ }
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 767px) {
+ .nav__link, 
+ .dropdown__link, 
+ .dropdown__sublink {
+   font-size: 18px;
+   padding: 1.25rem 1.2rem;
+ }
+ 
+ .dropdown__arrow {
+   font-size: 1.5rem;
+ }
+ 
+ .nav__logo {
+   font-size: 20px;
+ }
+ 
+ .nav__burger, 
+ .nav__close {
+   font-size: 1.5rem;
+ }
 }
 
 .nav__link {
- color:rgb(249, 229, 240) ;
+ color: rgb(249, 229, 240);
  background-color: var(--black-color);
  font-size: large;
  font-weight: var(--font-semi-bold);
@@ -292,7 +228,7 @@ a:hover {
 
 .nav__link:hover {
  background-color: var(--black-color-light);
- font: bolder;
+ font-weight: bolder;
 }
 
 /* Show menu */
@@ -374,99 +310,7 @@ a:hover {
  background-color: var(--black-color-lighten);
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
-@media screen and (max-width: 340px) {
- .container {
-   margin-inline: 1rem;
- }
-
- .nav__link {
-   padding-inline: 1rem;
- }
-}
-
-/* For large devices */
-@media screen and (min-width: 1118px) {
- .container {
-   margin-inline: auto;
- }
-
- .nav {
-   height: calc(var(--header-height) + 2rem);
-   display: flex;
-   justify-content: space-between;
- }
- .nav__toggle {
-   display: none;
- }
- .nav__list {
-   height: 100%;
-   display: flex;
-   column-gap: 3rem;
- }
- .nav__link {
-   height: 100%;
-   padding: 0;
-   justify-content: initial;
-   column-gap: .25rem;
- }
- .nav__link:hover {
-   background-color: transparent;
- }
-
- .dropdown__item, 
- .dropdown__subitem {
-   position: relative;
- }
-
- .dropdown__menu, 
- .dropdown__submenu {
-   max-height: initial;
-   overflow: initial;
-   position: absolute;
-   left: 0;
-   top: 6rem;
-   opacity: 0;
-   pointer-events: none;
-   transition: opacity .3s, top .3s;
- }
-
- .dropdown__link, 
- .dropdown__sublink {
-   padding-inline: 1rem 3.5rem;
- }
-
- .dropdown__subitem .dropdown__link {
-   padding-inline: 1rem;
- }
-
- .dropdown__submenu {
-   position: absolute;
-   left: 100%;
-   top: .5rem;
- }
-
- /* Show dropdown menu */
- .dropdown__item:hover .dropdown__menu {
-   opacity: 1;
-   top: 5.5rem;
-   pointer-events: initial;
-   transition: top .3s;
- }
-
- /* Show dropdown submenu */
- .dropdown__subitem:hover > .dropdown__submenu {
-   opacity: 1;
-   top: 0;
-   pointer-events: initial;
-   transition: top .3s;
- }
-}
-
-* {box-sizing:border-box}
-
-/* Slideshow container */
+/*=============== SLIDESHOW ===============*/
 .slideshow-container {
  max-width: 1000px;
  position: relative;
@@ -516,250 +360,35 @@ a:hover {
  border-radius: 3px 0 0 3px;
 }
 
+/* Slideshow dots */
+.dot {
+ cursor: pointer;
+ height: 15px;
+ width: 15px;
+ margin: 0 5px;
+ background-color: #bbb;
+ border-radius: 50%;
+ display: inline-block;
+ transition: background-color 0.6s ease;
+}
+
+.dot:hover,
+.dot.active {
+ background-color: #717171;
+}
+
 @keyframes fade {
- from {opacity: .14}
+ from {opacity: .4}
  to {opacity: 1}
 }
 
-.year-section {
- margin-bottom: 15px;
- border: 1px solid #ddd;
- border-radius: 4px;
-}
-.year-header {
- background-color: #ffefef;
- padding: 10px 15px;
- cursor: pointer;
- user-select: none;
-}
-.year-header:hover {
- background-color: #fffce1;
- transition: background-color 0.3s ease;
+/* Apply fade animation to slides */
+.mySlides.fade {
+ animation: fade 1s;
 }
 
-.year-indicator {
-    float: right;
-    font-weight: bold;
-    margin-left: 10px; /* Add spacing between text and indicator */
-}
-
-
-.year-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.active-content {
-    max-height: 1000px; /* Adjust as needed */
-    overflow: visible; /* Ensure content is fully visible */
-}
-
-.intro {
- background-color: #f8f9fa;
- padding: 15px;
- border-left: 4px solid var(--black-color);
-
-}
-
-.pdf-icon:before {
- content: "📄 ";
-}
-.year-indicator {
- float: right;
- font-weight: bold;
-}
-
-/*--CALENDAR--*/
-
-* {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
-}
-
-body {
- align-content: center;
- display: flex;
- justify-content: center;
- min-height: 100vh;
- font-family: Arial, sans-serif;
- line-height: 1.6;
- padding: 20px;
-}
-
-.calendar-container {
- max-width: 1200px;
- margin: 0 auto;
-}
-
-.calendar-row {
- display: flex;
- flex-wrap: wrap;
- margin-bottom: 30px;
-}
-
-.month-container {
- flex: 1 0 calc(33.333% - 20px);
- margin: 10px;
- border: 1px solid #ddd;
- border-radius: 8px;
- overflow: hidden;
- box-shadow: 0 2px 5px rgba(38, 7, 7, 0.1);
-}
-
-.month {
- background-color: var(--black-color);
- color: white;
- padding: 12px;
- text-align: center;
- font-weight: bold;
- font-size: 18px;
-}
-
-.events-container {
- padding: 15px;
-
-}
-
-.cal-event {
- padding: 10px;
- margin-bottom: 10px;
- background-color: #f9f9f9;
- border-left: 4px solid var(--black-color-light);
- border-radius: 4px;
-}
-
-.cal-event:last-child {
- margin-bottom: 0;
-}
-
-.date {
- font-weight: bold;
- margin-bottom: 5px;
-}
-
-.description {
- font-size: 14px;
- color: #282727;
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
- .month-container {
-     flex: 1 0 calc(50% - 20px);
- }
-}
-
-@media (max-width: 600px) {
- .month-container {
-     flex: 1 0 calc(100% - 20px);
- }
-}
-
-/** Contacts Styles **/
-* {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
-}
-
-body {
- font-family: Arial, sans-serif;
- line-height: 1.6;
- padding: 20px;
- display: flex;
- justify-content: center;
- min-height: 100vh;
-}
-
-.table-container {
- max-width: 800px;
- width: 100%;
- margin: 0 auto;
- border-radius: 8px;
- overflow: hidden;
- box-shadow: 0 2px 5px rgba(0, 0, 0, 0.142);
-}
-
-table {
- width: 100%;
- border-collapse: collapse;
-}
-
-th {
- background-color: var(--black-color);
- color: rgb(255, 255, 255);
- text-align: center;
- 
- padding: 15px;
- font-size: 18px;
- font-weight: bold;
-}
-
-thead th {
- padding: 15px;
- display:contents
-
-td {
- padding: 12px 15px;
- border-bottom: 1px solid #ddd;
-}
-
-tr:last-child td {
- border-bottom: none;
-}
-
-tr:nth-child(even) {
- background-color: #f9f9f9;
-}
-
-tr:hover {
- background-color: #f1f1f1;
-}
-  
- tr {
-     margin-bottom: 15px;
-     display: block;
-     border: 1px solid #ddd;
-     border-radius: 8px;
-     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-     overflow: hidden;
- }
- 
- tr:nth-child(even) {
-     background-color: #f9f9f9;
- }
- 
- td {
-     display: block;
-     text-align: center;
-     position: relative;
-     padding: 12px 15px 12px 50%;
-     border-bottom: 1px solid #eee;
- }
- 
- td:last-child {
-     border-bottom: 0;
- }
- 
- td:before {
-     content: attr(data-label);
-     position: absolute;
-     left: 15px;
-     top: 12px;
-     font-weight: bold;
-     text-align: center;
-     color: #68007f;
- }
- 
- .table-container {
-     box-shadow: none;
- }
-
- /* CSS for Footer */
+/*=============== FOOTER ===============*/
 .footer {
-
  color: var(--white-color);
  padding: 2rem 0;
  margin-top: 3rem;
@@ -768,7 +397,6 @@ tr:hover {
 }
 
 .footer-container {
-
  max-width: 1200px;
  margin: 0 auto;
  padding: 0 20px;
@@ -854,7 +482,101 @@ tr:hover {
  color: #e0d4d4;
 }
 
-/* Responsive adjustments */
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+ .container {
+   margin-inline: 1rem;
+ }
+
+ .nav__link {
+   padding-inline: 1rem;
+ }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+ .container {
+   margin-inline: auto;
+ }
+
+ .nav {
+   height: calc(var(--header-height) + 2rem);
+   display: flex;
+   justify-content: space-between;
+ }
+ 
+ .nav__toggle {
+   display: none;
+ }
+ 
+ .nav__list {
+   height: 100%;
+   display: flex;
+   column-gap: 3rem;
+ }
+ 
+ .nav__link {
+   height: 100%;
+   padding: 0;
+   justify-content: initial;
+   column-gap: .25rem;
+ }
+ 
+ .nav__link:hover {
+   background-color: transparent;
+ }
+
+ .dropdown__item, 
+ .dropdown__subitem {
+   position: relative;
+ }
+
+ .dropdown__menu, 
+ .dropdown__submenu {
+   max-height: initial;
+   overflow: initial;
+   position: absolute;
+   left: 0;
+   top: 6rem;
+   opacity: 0;
+   pointer-events: none;
+   transition: opacity .3s, top .3s;
+ }
+
+ .dropdown__link, 
+ .dropdown__sublink {
+   padding-inline: 1rem 3.5rem;
+ }
+
+ .dropdown__subitem .dropdown__link {
+   padding-inline: 1rem;
+ }
+
+ .dropdown__submenu {
+   position: absolute;
+   left: 100%;
+   top: .5rem;
+ }
+
+ /* Show dropdown menu */
+ .dropdown__item:hover .dropdown__menu {
+   opacity: 1;
+   top: 5.5rem;
+   pointer-events: initial;
+   transition: top .3s;
+ }
+
+ /* Show dropdown submenu */
+ .dropdown__subitem:hover > .dropdown__submenu {
+   opacity: 1;
+   top: 0;
+   pointer-events: initial;
+   transition: top .3s;
+ }
+}
+
+/* Responsive adjustments for footer */
 @media screen and (max-width: 768px) {
  .footer-section {
    flex: 100%;
@@ -864,108 +586,4 @@ tr:hover {
  .footer-container {
    flex-direction: column;
  }
-}
-
-/* Timeline visual hierarchy styles */
-.time-line {
- max-width: 1000px;
- margin: 0 auto;
- padding: 20px;
- font-family: var(--body-font);
-}
-
-/* Decade headers - make them stand out */
-.time-line h2 {
- background-color: var(--black-color);
- color: var(--white-color);
- padding: 12px 20px;
- margin: 30px 0 15px 0;
- font-size: 24px;
- border-radius: 5px;
- box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-/* Year items */
-.time-line > ul {
- padding-left: 0;
- list-style-type: none;
-}
-
-.time-line > ul > li {
- margin-bottom: 20px;
- padding-bottom: 15px;
- border-bottom: 1px solid #eee;
- position: relative;
-}
-
-/* Make year and president stand out */
-.time-line .date {
- font-weight: bold;
- color: var(--black-color);
- font-size: 18px;
- display: inline-block;
- margin-right: 10px;
-}
-
-.time-line .title {
- font-weight: bold;
- color: var(--black-color-light);
-}
-
-/* Second level information */
-.time-line > ul > li > ul {
- margin-top: 10px;
- margin-left: 25px;
- list-style-type: circle;
- padding-left: 20px;
-}
-
-.time-line > ul > li > ul > li {
- margin-bottom: 8px;
- font-size: 0.95em;
-}
-
-/* Third level information - nesting deeper */
-.time-line > ul > li > ul > li > ul {
- margin-top: 5px;
- list-style-type: disc;
- padding-left: 20px;
- font-size: 0.9em;
-}
-
-/* For mobile devices - enhance readability */
-@media screen and (max-width: 767px) {
- .time-line .date,
- .time-line .title {
-   font-size: 20px; /* Larger for mobile */
-   display: block; /* Stack vertically on mobile */
-   margin-bottom: 5px;
- }
- 
- .time-line > ul > li > ul {
-   margin-left: 15px;
- }
- 
- .time-line > ul > li > ul > li {
-   margin-bottom: 12px;
- }
-
-/* Responsive adjustments */
-@media screen and (max-width: 600px) {
- table {
-     border: 0;
- }
-}
-
-}}
-
-@media screen and (max-width: 600px) {
-    .year-header {
-        font-size: 16px; /* Adjust font size for smaller screens */
-        padding: 8px 10px; /* Reduce padding */
-    }
-
-    .year-content {
-        padding: 10px; /* Adjust padding for smaller screens */
-    }
 }
