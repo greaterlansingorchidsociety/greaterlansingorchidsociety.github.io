@@ -35,22 +35,25 @@ function showSlides(n) {
         slideIndex = slides.length;
     }
     
-    // Hide all slides and remove active class
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        slides[i].classList.remove("active");
-    }
-    
-    // Remove active class from all dots
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.remove("active");
-    }
-    
-    // Show current slide and activate corresponding dot
+    // Show the new slide FIRST (before hiding others)
     if (slides[slideIndex - 1]) {
         slides[slideIndex - 1].style.display = "block";
         slides[slideIndex - 1].classList.add("active");
     }
+    
+    // Then hide all OTHER slides and remove their active class
+    for (let i = 0; i < slides.length; i++) {
+        if (i !== slideIndex - 1) { // Don't hide the current slide
+            slides[i].style.display = "none";
+            slides[i].classList.remove("active");
+        }
+    }
+    
+    // Remove active class from all dots, then activate current dot
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+    
     if (dots[slideIndex - 1]) {
         dots[slideIndex - 1].classList.add("active");
     }
