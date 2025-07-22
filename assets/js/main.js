@@ -2,10 +2,25 @@
 let slideIndex = 1;
 let autoSlideTimer;
 
+/*=============== IMAGE SLIDESHOW ===============*/
+let slideIndex = 1;
+let autoSlideTimer;
+
 // Initialize slideshow
 function initSlideshow() {
-    // Show first slide immediately
+    // Debug: Check if images are loading
     let slides = document.getElementsByClassName("mySlides");
+    console.log("Found slides:", slides.length);
+    
+    for (let i = 0; i < slides.length; i++) {
+        let img = slides[i].querySelector('img');
+        if (img) {
+            console.log("Slide", i+1, "image src:", img.src);
+            console.log("Image exists:", img.complete && img.naturalHeight !== 0);
+        }
+    }
+    
+    // Show first slide immediately
     if (slides.length > 0) {
         slides[0].style.display = "block";
         
@@ -54,7 +69,7 @@ function showSlides(n) {
     }
 }
 
-// Next/previous controls
+// Next/previous controls - THIS FUNCTION NAME MUST MATCH YOUR HTML
 function plusSlides(n) {
     // Stop auto-advance when user manually navigates
     clearTimeout(autoSlideTimer);
@@ -64,7 +79,7 @@ function plusSlides(n) {
     startAutoSlide();
 }
 
-// Thumbnail image controls
+// Thumbnail image controls - THIS FUNCTION NAME MUST MATCH YOUR HTML
 function currentSlide(n) {
     // Stop auto-advance when user clicks a dot
     clearTimeout(autoSlideTimer);
