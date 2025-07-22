@@ -4,10 +4,15 @@ let autoSlideTimer;
 
 // Initialize slideshow
 function initSlideshow() {
-    // Debug: Check if images are loading
     let slides = document.getElementsByClassName("mySlides");
     console.log("Found slides:", slides.length);
     
+    if (slides.length === 0) {
+        console.log("No slides found!");
+        return;
+    }
+    
+    // Debug: Check if images are loading
     for (let i = 0; i < slides.length; i++) {
         let img = slides[i].querySelector('img');
         if (img) {
@@ -16,18 +21,41 @@ function initSlideshow() {
         }
     }
     
-    // Show first slide immediately and properly
-    if (slides.length > 0) {
-        showSlides(slideIndex); // This will properly show the first slide
-        startAutoSlide(); // Start auto-advance
+    // Initialize: Hide all slides first
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[i].classList.remove("active");
     }
+    
+    // Show ONLY the first slide
+    slides[0].style.display = "block";
+    slides[0].classList.add("active");
+    
+    // Activate first dot if it exists
+    let dots = document.getElementsByClassName("dot");
+    if (dots.length > 0) {
+        // Remove active from all dots
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.remove("active");
+        }
+        // Activate first dot
+        dots[0].classList.add("active");
+    }
+    
+    console.log("Slideshow initialized, showing slide 1");
+    
+    // Start auto-advance
+    startAutoSlide();
 }
 
-// Main function to show slides
+// Main function to show slides - COMPLETELY REWRITTEN
 function showSlides(n) {
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
     
+    if (slides.length === 0) return;
+    
+    // Handle index wrapping
     if (n > slides.length) {
         slideIndex = 1;
     }
@@ -35,82 +63,71 @@ function showSlides(n) {
         slideIndex = slides.length;
     }
     
-    // Find the currently visible slide
-    let currentlyVisible = -1;
+    let targetIndex = slideIndex - 1; // Convert to 0-based index
+    
+    console.log("Showing slide:", slideIndex, "DOM index:", targetIndex);
+    
+    // CRITICAL: Show new slide IMMEDIATELY before any other operations
+    slides[targetIndex].style.display = "block";
+    slides[targetIndex].classList.add("active");
+    
+    // Then hide all OTHER slides (not the current one)
     for (let i = 0; i < slides.length; i++) {
-        if (slides[i].style.display === "block") {
-            currentlyVisible = i;
-            break;
+        if (i !== targetIndex) {
+            slides[i].style.display = "none";
+            slides[i].classList.remove("active");
         }
     }
-    
-    // Show the new slide first
-    if (slides[slideIndex - 1]) {
-        slides[slideIndex - 1].style.display = "block";
-        slides[slideIndex - 1].classList.add("active");
-    }
-    
-    // Use requestAnimationFrame to ensure the new slide renders before hiding the old one
-    requestAnimationFrame(() => {
-        // Now hide all other slides
-        for (let i = 0; i < slides.length; i++) {
-            if (i !== slideIndex - 1) {
-                slides[i].style.display = "none";
-                slides[i].classList.remove("active");
-            }
-        }
-    });
     
     // Update dots
     for (let i = 0; i < dots.length; i++) {
         dots[i].classList.remove("active");
     }
-    
-    if (dots[slideIndex - 1]) {
-        dots[slideIndex - 1].classList.add("active");
+    if (dots[targetIndex]) {
+        dots[targetIndex].classList.add("active");
     }
 }
 
-// Next/previous controls - THIS FUNCTION NAME MUST MATCH YOUR HTML
+// Next/previous controls
 function plusSlides(n) {
-    // Stop auto-advance when user manually navigates
-    clearTimeout(autoSlideTimer);
+    console.log("Manual navigation:", n);
+    clearInterval(autoSlideTimer); // Changed from clearTimeout
     slideIndex += n;
     showSlides(slideIndex);
-    // Restart auto-advance after user interaction
     startAutoSlide();
 }
 
-// Thumbnail image controls - THIS FUNCTION NAME MUST MATCH YOUR HTML
+// Dot controls
 function currentSlide(n) {
-    // Stop auto-advance when user clicks a dot
-    clearTimeout(autoSlideTimer);
+    console.log("Dot clicked:", n);
+    clearInterval(autoSlideTimer); // Changed from clearTimeout
     slideIndex = n;
     showSlides(slideIndex);
-    // Restart auto-advance after user interaction
     startAutoSlide();
 }
 
-// Auto-advance function - simplified to avoid timing issues
+// Auto-advance function
 function nextSlide() {
+    console.log("Auto advance from slide:", slideIndex);
     slideIndex++;
     showSlides(slideIndex);
 }
 
-// Start auto-advance timer - using setInterval for consistent timing
+// Start auto-advance timer
 function startAutoSlide() {
-    // Clear any existing timer first
-    clearTimeout(autoSlideTimer);
+    // Clear any existing timer
+    clearInterval(autoSlideTimer);
     
-    // Use setInterval instead of recursive setTimeout for consistent timing
+    console.log("Starting auto-advance timer");
     autoSlideTimer = setInterval(() => {
         nextSlide();
-    }, 4000); // Change slide every 4 seconds with no gaps
+    }, 4000);
 }
 
-// Stop auto-advance (useful for cleanup)
+// Stop auto-advance
 function stopAutoSlide() {
     clearInterval(autoSlideTimer);
+    console.log("Auto-advance stopped");
 }
 
 /*=============== SHOW MENU ===============*/
@@ -120,10 +137,7 @@ const showMenu = (toggleId, navId) => {
 
    if (toggle && nav) {
        toggle.addEventListener('click', () => {
-           // Add show-menu class to nav menu
            nav.classList.toggle('show-menu');
-
-           // Add show-icon to show and hide the menu icon
            toggle.classList.toggle('show-icon');
        });
    }
@@ -133,25 +147,21 @@ showMenu('nav-toggle', 'nav-menu');
 
 /*=============== YEAR HEADER TOGGLE ===============*/
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize slideshow when DOM is loaded
-    initSlideshow();
+    console.log("DOM loaded, initializing slideshow...");
     
-    // Select all year headers
+    // Small delay to ensure all images are in DOM
+    setTimeout(() => {
+        initSlideshow();
+    }, 100);
+    
+    // Year headers functionality
     const yearHeaders = document.querySelectorAll('.year-header');
-
     yearHeaders.forEach(header => {
         header.addEventListener('click', function () {
-            // Toggle the active class on the header
             this.classList.toggle('active');
-
-            // Find the next sibling element (year-content)
             const content = this.nextElementSibling;
-
             if (content && content.classList.contains('year-content')) {
-                // Toggle the active-content class to show/hide the content
                 content.classList.toggle('active-content');
-
-                // Update the indicator text
                 const indicator = this.querySelector('.year-indicator');
                 if (indicator) {
                     indicator.textContent = content.classList.contains('active-content') ? '-' : '+';
