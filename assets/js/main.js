@@ -4,6 +4,19 @@ let autoSlideTimer;
 
 // Initialize slideshow
 function initSlideshow() {
+    // Show first slide immediately
+    let slides = document.getElementsByClassName("mySlides");
+    if (slides.length > 0) {
+        slides[0].style.display = "block";
+        
+        // Activate first dot
+        let dots = document.getElementsByClassName("dot");
+        if (dots.length > 0) {
+            dots[0].classList.add("active");
+        }
+    }
+    
+    // Then start the normal slideshow
     showSlides(slideIndex);
     startAutoSlide();
 }
@@ -20,22 +33,24 @@ function showSlides(n) {
         slideIndex = slides.length;
     }
     
-    // Hide all slides
+    // Hide all slides and remove active class
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
+        slides[i].classList.remove("active");
     }
     
     // Remove active class from all dots
     for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+        dots[i].classList.remove("active");
     }
     
     // Show current slide and activate corresponding dot
     if (slides[slideIndex - 1]) {
         slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].classList.add("active");
     }
     if (dots[slideIndex - 1]) {
-        dots[slideIndex - 1].className += " active";
+        dots[slideIndex - 1].classList.add("active");
     }
 }
 
