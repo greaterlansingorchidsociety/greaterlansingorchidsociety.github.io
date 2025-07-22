@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Small delay to ensure all images are in DOM
     setTimeout(() => {
         initSlideshow();
-    }, 100);
+    }, 50);
     
     // Year headers functionality
     const yearHeaders = document.querySelectorAll('.year-header');
