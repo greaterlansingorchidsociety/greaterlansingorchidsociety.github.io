@@ -2,10 +2,6 @@
 let slideIndex = 1;
 let autoSlideTimer;
 
-/*=============== IMAGE SLIDESHOW ===============*/
-let slideIndex = 1;
-let autoSlideTimer;
-
 // Initialize slideshow
 function initSlideshow() {
     // Debug: Check if images are loading
