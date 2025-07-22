@@ -16,20 +16,11 @@ function initSlideshow() {
         }
     }
     
-    // Show first slide immediately
+    // Show first slide immediately and properly
     if (slides.length > 0) {
-        slides[0].style.display = "block";
-        
-        // Activate first dot
-        let dots = document.getElementsByClassName("dot");
-        if (dots.length > 0) {
-            dots[0].classList.add("active");
-        }
+        showSlides(slideIndex); // This will properly show the first slide
+        startAutoSlide(); // Start auto-advance
     }
-    
-    // Then start the normal slideshow
-    showSlides(slideIndex);
-    startAutoSlide();
 }
 
 // Main function to show slides
@@ -85,18 +76,26 @@ function currentSlide(n) {
     startAutoSlide();
 }
 
-// Auto-advance function
+// Auto-advance function - simplified to avoid timing issues
 function nextSlide() {
     slideIndex++;
     showSlides(slideIndex);
 }
 
-// Start auto-advance timer
+// Start auto-advance timer - using setInterval for consistent timing
 function startAutoSlide() {
-    autoSlideTimer = setTimeout(() => {
+    // Clear any existing timer first
+    clearTimeout(autoSlideTimer);
+    
+    // Use setInterval instead of recursive setTimeout for consistent timing
+    autoSlideTimer = setInterval(() => {
         nextSlide();
-        startAutoSlide(); // Continue the cycle
-    }, 4000); // Change slide every 4 seconds
+    }, 4000); // Change slide every 4 seconds with no gaps
+}
+
+// Stop auto-advance (useful for cleanup)
+function stopAutoSlide() {
+    clearInterval(autoSlideTimer);
 }
 
 /*=============== SHOW MENU ===============*/
