@@ -1016,4 +1016,16 @@ tr:hover {
     }
 }
 
+/* Responsive adjustments for footer */
+@media screen and (max-width: 768px) {
+ .footer-section {
+   flex: 100%;
+   margin-bottom: 2rem;
+ }
+ 
+ .footer-container {
+   flex-direction: column;
+ }
+}
+
 /*CSS Nav bar adapted from work by Bejnjamin Huang (https://github.com/benjaminhuanghuang)*/
