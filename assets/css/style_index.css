@@ -15,7 +15,7 @@
 
  /*========== Font and typography ==========*/
  /*.5rem = 8px | 1rem = 16px ...*/
- --body-font: "Sedan", sans-serif;
+ --body-font: "Nunito", sans-serif;
  --normal-font-size: 1rem;
 
  /*========== Font weight ==========*/
@@ -376,7 +376,7 @@ a:hover {
 
 .dot:hover,
 .dot.active {
-    background-color: #717171;
+    background-color: hsl(304, 37%, 68%);
 }
 
 /* Center the dots */
