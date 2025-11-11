@@ -16,6 +16,7 @@
  /*========== Font and typography ==========*/
  /*.5rem = 8px | 1rem = 16px ...*/
  --body-font: "Nunito", sans-serif;
+ --body-font: "Nunito", sans-serif;
  --normal-font-size: 1rem;
 
  /*========== Font weight ==========*/
@@ -376,6 +377,7 @@ a:hover {
 
 .dot:hover,
 .dot.active {
+    background-color: hsl(304, 37%, 68%);
     background-color: hsl(304, 37%, 68%);
 }
 
