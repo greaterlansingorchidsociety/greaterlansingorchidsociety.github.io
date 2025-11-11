@@ -228,8 +228,9 @@ a:hover {
 }
 
 .nav__link:hover {
- background-color: white;
+ background-color: var(--black-color);
  font-weight: bolder;
+ color: var(--white-color) !important;
 }
 
 /* Show menu */
