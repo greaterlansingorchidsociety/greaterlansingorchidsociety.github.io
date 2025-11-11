@@ -230,7 +230,7 @@ a:hover {
 .nav__link:hover {
  background-color: var(--black-color);
  font-weight: bolder;
- color: var(--white-color) !important;
+ color: var(--black-color-light) !important;
 }
 
 /* Show menu */
