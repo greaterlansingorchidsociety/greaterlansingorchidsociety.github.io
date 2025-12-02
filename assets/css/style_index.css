@@ -126,6 +126,12 @@ a:hover {
  -webkit-tap-highlight-color: transparent;
 }
 
+.nav__logo:hover {
+ background-color: var(--black-color);
+ font-weight: bolder;
+ color: var(--black-color-light) !important;
+}
+
 .nav__logo i {
  font-weight: initial;
  font-size: 1.25rem;
@@ -178,7 +184,7 @@ a:hover {
    padding-top: 1rem;
  }
  
- /* Fix dropdown display on mobile */
+ /*dropdown display on mobile */
  .dropdown__menu {
    position: static;
    background-color: var(--black-color-light);
