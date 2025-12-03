@@ -7,7 +7,7 @@
 
  /*========== Colors ==========*/
  /*Color mode HSL(hue, saturation, lightness)*/
- --black-color: hsl(312, 100%, 24%);
+ --black-color: hsl(312, 100%, 12%);
  --black-color-light: hsl(304, 37%, 68%);
  --black-color-lighten: hsl(313, 92%, 95%);
  --white-color: #fff;
@@ -126,6 +126,10 @@ a:hover {
  -webkit-tap-highlight-color: transparent;
 }
 
+.nav__logo:hover {
+    color: var(--black-color-light);
+}
+
 .nav__logo i {
  font-weight: initial;
  font-size: 1.25rem;
@@ -195,14 +199,18 @@ a:hover {
 /* Navigation for mobile devices */
 @media screen and (max-width: 767px) {
  .nav__link, 
- .dropdown__link, 
+ .dropdown__link {
+   color: rgb(255, 255, 255);
+  background-color: var(--black-color);
+ }
+  
  .dropdown__sublink {
    font-size: 18px;
    padding: 1.25rem 1.2rem;
  }
- 
- .dropdown__arrow {
+  .dropdown__arrow {
    font-size: 1.5rem;
+ }
  }
  
  .nav__logo {
@@ -213,10 +221,10 @@ a:hover {
  .nav__close {
    font-size: 1.5rem;
  }
-}
+
 
 .nav__link {
- color: rgb(249, 229, 240);
+ color: rgb(255, 255, 255);
  background-color: var(--black-color);
  font-size: large;
  font-weight: var(--font-semi-bold);
@@ -424,7 +432,7 @@ a:hover {
 }
 
 .footer-section h3 {
- color: var(--white-color);
+ color: purple;
  font-size: 1.2rem;
  margin-bottom: 1rem;
  padding-bottom: 0.5rem;
@@ -432,12 +440,14 @@ a:hover {
 }
 
 .footer-section p {
+color: purple;
  font-size: 0.9rem;
  line-height: 1.6;
  margin-bottom: 0.8rem;
 }
 
 .footer-section ul {
+color: purple;
  list-style: none;
  padding: 0;
 }
@@ -489,8 +499,8 @@ a:hover {
 }
 
 .footer-bottom p {
- font-size: 0.85rem;
- color: #e0d4d4;
+ font-size: 1.2rem;
+ color: #3f0336;
 }
 
 /*=============== BREAKPOINTS ===============*/
