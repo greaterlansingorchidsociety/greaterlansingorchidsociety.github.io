@@ -18,128 +18,6 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Agu+Display&family=Sedan:ital@0;1&display=swap" rel="stylesheet">
-
-            <style>
-                /* Gallery Styles */
-                .orchidist-gallery {
-                    margin: 40px auto;
-                    padding: 30px 20px;
-                    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-                    border-radius: 15px;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                }
-                
-                .gallery-title {
-                    text-align: center;
-                    margin-bottom: 30px;
-                    color: #2c3e50;
-                    font-size: 2.2em;
-                    font-weight: 600;
-                    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-                }
-                
-                .gallery-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 25px;
-                    max-width: 1200px;
-                    margin: 0 auto;
-                }
-                
-                .orchidist-card {
-                    background: white;
-                    border-radius: 12px;
-                    overflow: hidden;
-                    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-                    transition: all 0.3s ease;
-                    border: 3px solid transparent;
-                    position: relative;
-                }
-                
-                .orchidist-card:hover {
-                    transform: translateY(-8px);
-                    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-                    border-color: #6c5ce7;
-                }
-                
-                .orchidist-photo {
-                    width: 100%;
-                    height: 200px;
-                    background: linear-gradient(45deg, #ddd, #f0f0f0);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 3em;
-                    color: #666;
-                    position: relative;
-                    overflow: hidden;
-                }
-                
-                .orchidist-photo::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1) 0%, rgba(161, 196, 253, 0.1) 100%);
-                }
-                
-                .orchidist-photo i {
-                    position: relative;
-                    z-index: 1;
-                }
-                
-                .orchidist-info {
-                    padding: 20px;
-                    text-align: center;
-                }
-                
-                .orchidist-name {
-                    font-weight: bold;
-                    font-size: 1.1em;
-                    color: #2c3e50;
-                    margin-bottom: 8px;
-                    line-height: 1.3;
-                }
-                
-                .orchidist-year {
-                    color: #6c5ce7;
-                    font-weight: 600;
-                    font-size: 0.95em;
-                    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                }
-                
-                .placeholder-note {
-                    text-align: center;
-                    margin-top: 20px;
-                    padding: 15px;
-                    background: rgba(108, 92, 231, 0.1);
-                    border-radius: 8px;
-                    color: #6c5ce7;
-                    font-style: italic;
-                    border-left: 4px solid #6c5ce7;
-                }
-                
-                @media (max-width: 768px) {
-                    .gallery-grid {
-                        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                        gap: 15px;
-                    }
-                    
-                    .orchidist-photo {
-                        height: 150px;
-                        font-size: 2.5em;
-                    }
-                    
-                    .gallery-title {
-                        font-size: 1.8em;
-                    }
-                }
-            </STYLE>
         </head>
 
 <!-- Page Container-->
@@ -966,20 +844,16 @@
 
     <!--footer-->
 <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-section">
-      <div class="social-icons">
-        <a href="https://www.facebook.com/groups/564994978819724" target="_blank" rel="noopener noreferrer">
-    <i class="ri-facebook-fill"></i>
-</a>
-      </div>
+  <div class="footer-container"> 
+    <div class="footer-bottom">
+      <p>&copy; 2025 Greater Lansing Orchid Society. All rights reserved.</p>
+      <p><a href="mailto:raechelportelli@gmail.com"><i>Contact Webmaster</i></a></p>
+      <p><i>updated: July 2025</i></p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/groups/564994978819724" target="_blank" rel="noopener noreferrer"><i class="ri-facebook-fill"></i>
+        </a>
     </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <p>&copy; 2025 Greater Lansing Orchid Society. All rights reserved.</p>
-    <p><a href="mailto:raechelportelli@gmail.com"><i>Contact Webmaster</i></a></p>
-    <p><i>updated: November 2025</i></p>
+    </div>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
