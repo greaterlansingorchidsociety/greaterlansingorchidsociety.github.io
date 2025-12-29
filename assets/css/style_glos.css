@@ -277,6 +277,10 @@ ul {
     animation-duration: 3.5s
 }
 
+.news-container {
+    margin-top: 80px;
+}
+
 .year-section {
     margin-bottom: 15px;
     border: 1px solid #ddd;
