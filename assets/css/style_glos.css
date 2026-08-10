@@ -100,6 +100,7 @@ ul {
 
 .nav {
     height: var(--header-height);
+    background-color: var(--main-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
