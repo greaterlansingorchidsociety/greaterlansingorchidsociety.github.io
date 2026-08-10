@@ -1,178 +1,1162 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Greater Lansing Orchid Society (GLOS)</title>
-            
-        
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-            <meta name="keywords" content="Greater Lansing Orchid Society">
-            <meta name="description" content="Home">
+@import url(https://fonts.googleapis.com/css2?family=Agu+Display&family=Sedan:wght@400;600&display=swap);
 
+@keyframes fade {
+    0% {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
 
-            <link rel="stylesheet" href="assets/css/style_glos.css">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" charset="UTF-8">        
-            
-            <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" charset="UTF-8"></script>    
-            
-            <script src="https://kit.fontawesome.com/js/bootstrap.min.js" charset="UTF-8"></script>    
-            
-            <script src="https://kit.fontawesome.com/106ef441e0.js" crossorigin="anonymous"></script>
-    </head>
+.separation {
+    position: fixed;
+    top: 0
+}
 
-<body leftmargin=0 topmargin=0><!-- Page Container-->
+:root {
+    --main-color: hsla(275, 91, 13, 1);
+    --main-color-light: hsl(271, 96%, 91%);
+    --main-color-lighten: hsl(313, 92%, 95%);
+    --body-font: 'Agu Display', sans-serif;
+    --alternative-font: 'Sedan', sans-serif;
+    --normal-font-size: 1rem;
+    --font-regular: 600;
+    --font-semi-bold: 800;
+    --header-height: 3.5rem;
+    --white-color: #fff;
+    --body-color: hsl(0, 0%, 100%);
+    --z-tooltip: 10;
+    --z-fixed: 100
+}
 
-<!--=============== HEADER ===============-->
-    <header class="header">
+a {
+    color: #8C0F48;
+    transition: color .3s;
+    text-decoration: none
+}
 
-        <!--=============== NAV MENU ===============-->
-        <nav class="nav container">
-            <div class="nav__data">
-                <a href="index.html" class="nav__logo">GLOS Home</a>
-                <li><img src = "img/logo.png" style="height: 50px;" alt="purple calypso orchid"></li>
-                  <div class="nav__toggle" id="nav-toggle">
-                        <i class="ri-menu-line nav__burger"></i>
-                        <i class="ri-close-line nav__close"></i>
-                  </div>
-            </div>
-            <div class="nav__menu" id="nav-menu">
-              <ul class="nav__list">
-                  <li><a href="membership.html" class="nav__link">Membership</a></li>
-                  <li><a href="news.html" class="nav__link">Newsletter</a></li>
-                  <li><a href="history.html" class="nav__link">History</a></li>
-                  <li><a href="growing.html" class="nav__link">Additional Info</a></li>
+a:hover {
+    color: #df04f7;
+    text-decoration: underline
+}
 
-            <!--=============== DROPDOWN ===============-->
-                  <li class="dropdown__item">
-                    <div class="nav__link"> Events <i class="ri-arrow-down-s-line dropdown__arrow"></i></div>
-                      <ul class="dropdown__menu">
-                        <li><a href="calendar.html" class="dropdown__link">Calendar</a></li>
-                        <li><a href="show.html" class="dropdown__link">Annual Show</a></li>
-                      </ul>
-            <!--=============== last ===============-->
-                  <li><a href="contact.html" class="nav__link">Contact</a></li>
-              </ul>
-            </div>
-        </nav>
-    </header>      
-                
-<div class="main-bod"> 
-<!--Contains main body elements of the image slideshow and text-->
-<!-- Slideshow container (Image widths should be 1920 x 796 px for best fit)-->
-            <div class="slideshow-container">
-    <!-- Full-width images -->
-              <div class="mySlides">
-                  <img src="img/img1.jpg" alt="Orchid Image 1">
-              </div>
-              
-              <div class="mySlides">
-                  <img src="img/img2.jpg" alt="Orchid Image 2">
-              </div>
-              
-              <div class="mySlides">
-                  <img src="img/img3.jpg" alt="Orchid Image 3">
-              </div>
+.large-icon {
+    font-size: 2rem
+}
 
-              <div class="mySlides">
-                  <img src="img/img4.jpg" alt="Orchid Image 4">
-              </div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
 
-              <div class="mySlides">
-                  <img src="img/img5.jpg" alt="Orchid Image 5">
-              </div>
+body {
+    font-family: var(--body-font);
+    line-height: 1.6;
+    padding: 15px;
+    font-size: 18px;
+    background-color: var(--body-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-              <div class="mySlides">
-                  <img src="img/img6.jpg" alt="Orchid Image 6">
-              </div>
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 20px;
+        padding: 12px;
+    }
+}
 
-              <div class="mySlides">
-                  <img src="img/img7.jpg" alt="Orchid Image 7">
-              </div>
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 22px;
+        padding: 10px;
+    }
+}
 
-              <div class="mySlides">
-                  <img src="img/img8.jpg" alt="Orchid Image 8">
-              </div>
+@media screen and (max-width: 360px) {
+    body {
+        font-size: 20px;
+        padding: 8px;
+    }
+}
 
-              <div class="mySlides">
-                  <img src="img/img9.jpg" alt="Orchid Image 9">
-              </div>
+ul {
+    list-style: none
+}
 
-              <div class="mySlides">
-                  <img src="img/img10.jpg" alt="Orchid Image 10">
-              </div>
+.header {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3d0a52;
+    opacity: 1;
+    box-shadow: 0 2px 16px rgba(14, 20, 32, 0.3);
+}
 
-              <div class="mySlides">
-                  <img src="img/img11.jpg" alt="Orchid Image 11">
-              </div>
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
 
-              <div class="mySlides">
-                  <img src="img/img12.jpg" alt="Orchid Image 12">
-              </div>
-              
-    <!-- Next and previous buttons -->
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
+.nav__data {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
 
-    <!-- Dots for slideshow -->
-            <div class="dots-container">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
-              <span class="dot" onclick="currentSlide(4)"></span>
-              <span class="dot" onclick="currentSlide(5)"></span>
-              <span class="dot" onclick="currentSlide(6)"></span>
-              <span class="dot" onclick="currentSlide(7)"></span>
-              <span class="dot" onclick="currentSlide(8)"></span>
-              <span class="dot" onclick="currentSlide(9)"></span>
-              <span class="dot" onclick="currentSlide(10)"></span>
-              <span class="dot" onclick="currentSlide(11)"></span>
-              <span class="dot" onclick="currentSlide(12)"></span>
-            </div>
+.nav__logo {
+    display: inline-flex;
+    align-items: center;
+    color: var(--white-color);
+    font-weight: 600;
+    font-size: 18px;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+}
 
+@media screen and (max-width: 768px) {
+    .nav__logo {
+        font-size: 20px;
+    }
+}
 
-          <section class="center-div">
-                  <H1>Greater Lansing Orchid Society</H1>
-                  <article>
-                      <p> <b>PLEASE NOTE THIS PAGE IS CURRENTLY UNDER ACTIVE DEVELOPMENT AND SOME FEATURES MAY NOT BE WORKING - Webmaster AUgust 10, 2026</b></p>
-                      <p>This is the official webpage of the Greater Lansing Orchid Society, founded in 1977. Through this mission the GLOS seeks to:</p>
-                          <ul>
-                            <li>Create an awareness of orchid culture</li>
-                          <li>Foster the preservation of native species of orchids</li>
-                          <li>Support research and development of orchid culture</li>
-                          <li>Hold meetings, lectures, and exhibitions</li>
-                          </ul>
-                  </article>
-                  <article>
-                   <p>The Society meets most months either via Zoom, in person at the Wacousta Community United Methodist Church, or a combination of both. We meet at 6:00 pm during the months that are warmer and lighter in the evening, and at 2:00 during the colder, darker months. Please check the most current Newsletter for specifics.
-                    For a map to the church and other information, please see the newsletter, the <a href="news.html">Calypso</a>. Information pertaining to our orchid show can be found in the <a href="show.html">2026 GLOS Orchid Show Page</a>.</p>
-                  </article>
-          </section>
+@media screen and (max-width: 480px) {
+    .nav__logo {
+        font-size: 22px;
+    }
+}
 
-          
-        </div>
+@media screen and (max-width: 360px) {
+    .nav__logo {
+        font-size: 16px;
+    }
+}
 
-<!-- footer -->
-<footer class="footer">
-  <div class="footer-container"> 
-    <div class="footer-bottom">
-      <p>&copy; 2025 Greater Lansing Orchid Society. All rights reserved.</p>
-      <p><a href="mailto:raechelportelli@gmail.com"><i>Contact Webmaster</i></a></p>
-      <p><i>updated: Fall 2025</i></p>
-    <div class="social-icons">
-        <a href="https://www.facebook.com/groups/564994978819724" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            aria-label="Visit our Facebook group (opens in new tab)">
-        <i class="ri-facebook-fill" aria-hidden="true"></i>
-        </a>
-    </div>
-    </div>
-  </div>
-</footer>
+.nav__logo:hover {
+    color: var(--main-color-light);
+}
 
+.nav__toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+@media screen and (max-width: 480px) {
+    .nav__toggle {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.nav__burger,
+.nav__close {
+    position: absolute;
+    color: var(--white-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: opacity .3s, transform .4s;
+}
+
+@media screen and (max-width: 480px) {
+    .nav__burger,
+    .nav__close {
+        font-size: 2.2rem;
+    }
+}
+
+.nav__close {
+    opacity: 0;
+}
+
+.show-icon .nav__burger {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.show-icon .nav__close {
+    opacity: 1;
+}
+
+.nav__data img {
+    height: 50px;
+    max-height: 50px;
+    width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .nav__data img {
+        height: 55px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav__data img {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .nav__data img {
+        height: 45px;
+    }
+}
+
+/* MOBILE NAV MENU - CRITICAL SECTION */
+.nav__menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    background-color: var(--main-color);
+    z-index: 90;
+    padding-top: 0;
+}
+
+.nav__menu.show-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav__list {
+    background-color: var(--main-color);
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav__link {
+    display: block;
+    color: #fff;
+    background-color: var(--main-color);
+    font-weight: 600;
+    padding: 1.2rem 1.5rem;
+    transition: background-color 0.3s;
+    font-size: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav__link {
+        font-size: 26px;
+        padding: 1.3rem 1.6rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav__link {
+        font-size: 28px;
+        padding: 1.5rem 1.8rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .nav__link {
+        font-size: 22px;
+        padding: 1.2rem 1.5rem;
+    }
+}
+
+.nav__link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--main-color-light);
+    font-weight: 700;
+}
+
+.dropdown__item {
+    cursor: pointer;
+}
+
+.dropdown__item .nav__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown__arrow {
+    font-size: 1.5rem;
+    font-weight: initial;
+    transition: transform 0.4s;
+    margin-left: 1rem;
+}
+
+.dropdown__menu {
+    max-height: 0;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: max-height 0.4s ease-out;
+}
+
+.dropdown__item.active .dropdown__menu {
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in;
+}
+
+.dropdown__link {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .dropdown__link {
+        font-size: 24px;
+        padding: 1.1rem 2.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dropdown__link {
+        font-size: 26px;
+        padding: 1.3rem 2.4rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .dropdown__link {
+        font-size: 20px;
+        padding: 1rem 2rem;
+    }
+}
+
+.dropdown__link:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: var(--main-color-light);
+}
+
+/* DESKTOP NAV - hidden on mobile */
+@media screen and (min-width: 1119px) {
+    .nav__toggle {
+        display: none;
+    }
+
+    .nav__menu {
+        position: static;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        background-color: transparent;
+    }
+
+    .nav__list {
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        gap: 2rem;
+    }
+
+    .nav__link {
+        padding: 0;
+        border-bottom: none;
+        font-size: 16px;
+        background-color: transparent;
+    }
+
+    .nav__link:hover {
+        background-color: transparent;
+        color: var(--main-color-light);
+    }
+
+    .dropdown__menu {
+        position: absolute;
+        background-color: var(--main-color-light);
+        max-height: 0;
+    }
+
+    .dropdown__item:hover .dropdown__menu {
+        max-height: 1000px;
+    }
+
+    .dropdown__arrow {
+        transform: rotate(0deg);
+    }
+
+    .dropdown__item:hover .dropdown__arrow {
+        transform: rotate(180deg);
+    }
+}
+
+.main-bod {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    margin-bottom: 3rem;
+    margin-top: 100px;
+    flex: 1
+}
+
+@media screen and (max-width: 480px) {
+    .main-bod {
+        padding: 0 10px;
+        margin-top: 80px;
+    }
+}
+
+.center-div {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.center-div h1 {
+    font-size: 28px;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .center-div h1 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .center-div h1 {
+        font-size: 36px;
+    }
+}
+
+.center-div article {
+    font-size: 18px;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+@media screen and (max-width: 768px) {
+    .center-div article {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .center-div article {
+        font-size: 22px;
+    }
+}
+
+.center-div ul li {
+    font-size: 18px;
+    margin-bottom: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+    .center-div ul li {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .center-div ul li {
+        font-size: 22px;
+    }
+}
+
+/* SLIDESHOW */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    background: 0 0;
+}
+
+@media screen and (max-width: 768px) {
+    .slideshow-container {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+.mySlides {
+    display: none;
+    width: 100%;
+    position: relative;
+}
+
+.mySlides img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 14px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+    .prev,
+    .next {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    border-radius: 0 3px 3px 0;
+    left: 0;
+}
+
+.next {
+    border-radius: 3px 0 0 3px;
+    right: 0;
+}
+
+.dot {
+    height: 16px;
+    width: 16px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+    .dot {
+        height: 18px;
+        width: 18px;
+        margin: 0 6px;
+    }
+}
+
+.dot.active,
+.dot:hover {
+    background-color: #cc8fc8;
+}
+
+.dots-container {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+    .dots-container {
+        font-size: 20px;
+    }
+}
+
+.mySlides.fade {
+    animation: fade 1s;
+}
+
+/* TABLES */
+.table-container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    table {
+        font-size: 20px;
+    }
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+@media screen and (max-width: 480px) {
+    th, td {
+        padding: 1rem 1.2rem;
+    }
+}
+
+thead th {
+    background-color: #270340;
+    color: #fff;
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5e0ff;
+}
+
+/* YEAR SECTIONS */
+.year-section {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: fit-content
+}
+
+.year-header {
+    background-color: var(--main-color);
+    padding: 12px 18px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    color: var(--white-color);
+    font-size: 18px;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .year-header {
+        font-size: 20px;
+        padding: 14px 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .year-header {
+        font-size: 22px;
+        padding: 16px 22px;
+    }
+}
+
+.year-header:hover {
+    background-color: var(--main-color-light);
+    transition: background-color 0.3s ease;
+    color: var(--main-color);
+}
+
+.year-indicator {
+    float: right;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.year-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    height: fit-content;
+    padding: 0;
+}
+
+.active-content {
+    max-height: fit-content;
+    overflow: visible;
+    padding: 1rem;
+}
+
+/* FOOTER */
+.footer {
+    color: var(--white-color);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    width: 100%;
+    clear: both;
+    background-color: var(--main-color);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: auto;
+    margin-bottom: 1.5rem;
+    padding-right: 20px;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-section {
+        font-size: 18px;
+        flex: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer-section {
+        font-size: 20px;
+        padding-right: 10px;
+    }
+}
+
+.footer-section p {
+    color: purple;
+    font-size: inherit;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul {
+    color: purple;
+    list-style: none;
+    padding: 0;
+    font-size: inherit;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+    color: var(--main-color-light);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--main-color-light);
+    color: var(--white-color);
+    transition: background-color 0.3s;
+}
+
+@media screen and (max-width: 480px) {
+    .social-icons a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+.social-icons a:hover {
+    background-color: var(--white-color);
+    color: var(--main-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--main-color-light);
+    width: 100%;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-bottom {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer-bottom {
+        font-size: 20px;
+    }
+}
+
+.footer-bottom p {
+    color: #3f0336;
+    margin: 0.5rem 0;
+}
+
+/* GALLERY */
+.orchidist-gallery {
+    margin: 40px auto;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0, #e9ecef 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-title {
+        font-size: 2.2rem;
+    }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+.orchidist-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    position: relative;
+}
+
+.orchidist-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: #6c5ce7;
+}
+
+.orchidist-photo {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(45deg, #ddd, #f0f0f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: #666;
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .orchidist-photo {
+        height: 150px;
+        font-size: 2.5em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .orchidist-photo {
+        height: 130px;
+        font-size: 2rem;
+    }
+}
+
+.orchidist-info {
+    padding: 16px;
+    text-align: center;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .orchidist-info {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .orchidist-info {
+        font-size: 18px;
+        padding: 12px;
+    }
+}
+
+.orchidist-name {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.orchidist-year {
+    color: #6c5ce7;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+/* TIMELINE */
+.time-line {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: var(--body-font);
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .time-line {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .time-line {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
+
+.time-line h2 {
+    background-color: var(--main-color);
+    color: var(--white-color);
+    padding: 12px 20px;
+    margin: 30px 0 15px;
+    font-size: 24px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 480px) {
+    .time-line h2 {
+        font-size: 28px;
+    }
+}
+
+.time-line>ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.time-line>ul>li {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.time-line .date {
+    font-weight: 700;
+    color: var(--main-color);
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 480px) {
+    .time-line .date {
+        font-size: 22px;
+    }
+}
+
+.time-line .title {
+    font-weight: 700;
+    color: var(--main-color-light);
+}
+
+.time-line>ul>li>ul {
+    margin-top: 10px;
+    margin-left: 20px;
+    list-style-type: circle;
+    padding-left: 20px;
+}
+
+.time-line>ul>li>ul>li {
+    margin-bottom: 8px;
+}
+
+/* CALENDAR */
+.calendar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calendar-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.month-container {
+    flex: 1 0 calc(33.333% - 20px);
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(38, 7, 7, 0.1);
+}
+
+@media screen and (max-width: 900px) {
+    .month-container {
+        flex: 1 0 calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .month-container {
+        flex: 1 0 calc(100% - 20px);
+    }
+}
+
+.month {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+    .month {
+        font-size: 20px;
+        padding: 14px;
+    }
+}
+
+.events-container {
+    padding: 15px;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+    .events-container {
+        font-size: 18px;
+    }
+}
+
+.cal-event {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffdbfb;
+    border-left: 4px solid var(--main-color-light);
+    border-radius: 4px;
+}
+
+.cal-event:last-child {
+    margin-bottom: 0;
+}
+
+.description {
+    font-size: inherit;
+    color: #282727;
+}
+
+/* UTILITIES */
+.container {
+    max-width: 100%;
+    margin-inline: 1.5rem;
+}
+
+@media screen and (min-width: 1118px) {
+    .container {
+        margin-inline: auto;
+    }
+}
+
+.intro {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid var(--main-color);
+    font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+    .intro {
+        font-size: 18px;
+    }
+}
+
+.placeholder-note {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(108, 92, 231, 0.1);
+    border-radius: 8px;
+    color: #6c5ce7;
+    font-style: italic;
+    border-left: 4px solid #6c5ce7;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+    .placeholder-note {
+        font-size: 18px;
+    }
+}
