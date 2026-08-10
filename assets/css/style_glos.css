@@ -42,46 +42,13 @@
     }
 }
 
-@media screen and (max-width:767px) {
-
-    .dropdown__link,
-    .dropdown__sublink,
-    .nav__link {
-        font-size: 18px;
-        padding: 1rem 1rem
-    }
-
-    .dropdown__arrow {
-        font-size: 1.5rem
-    }
-
-    .nav__logo {
-        font-size: 20px
-    }
-
-    .nav__burger,
-    .nav__close {
-        font-size: 1.5rem
-    }
-}
-
-@media screen and (max-width:360px) {
-    .dropdown__link,
-    .dropdown__sublink,
-    .nav__link {
-        font-size: 16px;
-        padding: 0.875rem 0.875rem
-    }
-}
-
-
 :root {
     --main-color: hsla(275, 91, 13, 1);
     --main-color-light: hsl(271, 96%, 91%);
     --main-color-lighten: hsl(313, 92%, 95%);
     --body-font: 'Agu Display', sans-serif;
     --alternative-font: 'Sedan', sans-serif;
-    --normal-font-size: 4.5rem;
+    --normal-font-size: 1rem;
     --font-regular: 600;
     --font-semi-bold: 800
 }
@@ -103,7 +70,7 @@ a:hover {
 
 @media screen and (min-width:1024px) {
     :root {
-        --normal-font-size: 2m
+        --normal-font-size: 1.2rem
     }
 }
 
@@ -114,21 +81,29 @@ body {
     padding: 20px;
     justify-content: center;
     font-family: var(--body-font);
-    font-size: var(--normal-font-size);
+    font-size: 16px;
     background-color: var(--body-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column
 }
 
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     body {
+        font-size: 20px;
         padding: 10px;
     }
 }
 
 @media screen and (max-width: 360px) {
     body {
+        font-size: 18px;
         padding: 5px;
     }
 }
@@ -315,7 +290,22 @@ ul {
     cursor: pointer;
     user-select: none;
     font-weight: 700;
-    color: var(--white-color)
+    color: var(--white-color);
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .year-header {
+        font-size: 18px;
+        padding: 12px 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .year-header {
+        font-size: 20px;
+        padding: 14px 20px;
+    }
 }
 
 .year-header:hover {
@@ -434,6 +424,19 @@ table {
     max-width: 600px;
     border-collapse: collapse;
     margin: 1.5rem 0;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    table {
+        font-size: 18px;
+    }
 }
 
 th,
@@ -442,6 +445,18 @@ td {
     padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: top;
+}
+
+@media screen and (max-width: 600px) {
+    th, td {
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    th, td {
+        padding: 0.5rem 0.6rem;
+    }
 }
 
 thead th {
@@ -478,7 +493,21 @@ tbody tr:nth-child(even) {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    font-family: var(--body-font)
+    font-family: var(--body-font);
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .time-line {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .time-line {
+        font-size: 20px;
+        padding: 15px;
+    }
 }
 
 .time-line h2 {
@@ -489,6 +518,12 @@ tbody tr:nth-child(even) {
     font-size: 24px;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .1)
+}
+
+@media screen and (max-width: 480px) {
+    .time-line h2 {
+        font-size: 28px;
+    }
 }
 
 .time-line>ul {
@@ -509,6 +544,12 @@ tbody tr:nth-child(even) {
     font-size: 18px;
     display: inline-block;
     margin-right: 10px
+}
+
+@media screen and (max-width: 480px) {
+    .time-line .date {
+        font-size: 22px;
+    }
 }
 
 .time-line .title {
@@ -555,13 +596,7 @@ tbody tr:nth-child(even) {
 
 @media screen and (max-width:600px) {
     table {
-        border: 0;
-        font-size: 0.9rem;
-        margin: 1rem 0;
-    }
-
-    th, td {
-        padding: 0.5rem 0.75rem;
+        border: 0
     }
 
     .year-header {
@@ -571,39 +606,6 @@ tbody tr:nth-child(even) {
 
     .year-content {
         padding: 10px
-    }
-}
-
-@media screen and (max-width:360px) {
-    table {
-        font-size: 0.85rem;
-    }
-
-    th, td {
-        padding: 0.4rem 0.5rem;
-    }
-
-    .year-header {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-
-    .year-content {
-        padding: 8px;
-    }
-
-    .time-line {
-        padding: 10px;
-    }
-
-    .time-line h2 {
-        font-size: 18px;
-        padding: 10px 15px;
-    }
-
-    .time-line .date,
-    .time-line .title {
-        font-size: 16px;
     }
 }
 
@@ -685,11 +687,25 @@ tbody tr:nth-child(even) {
     margin: 0 auto;
     max-width: 100%;
     padding: 0 10px;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .center-div {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .center-div {
+        font-size: 22px;
+    }
 }
 
 @media screen and (max-width: 360px) {
     .center-div {
         padding: 0 5px;
+        font-size: 18px;
     }
 }
 
@@ -716,7 +732,26 @@ tbody tr:nth-child(even) {
     align-items: center;
     column-gap: .25rem;
     font-weight: var(--font-semi-bold);
-    -webkit-tap-highlight-color: transparent
+    -webkit-tap-highlight-color: transparent;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav__logo {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav__logo {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .nav__logo {
+        font-size: 20px;
+    }
 }
 
 .footer-section a:hover,
@@ -730,6 +765,13 @@ tbody tr:nth-child(even) {
     height: 32px
 }
 
+@media screen and (max-width: 480px) {
+    .nav__toggle {
+        width: 40px;
+        height: 40px;
+    }
+}
+
 .nav__burger,
 .nav__close {
     position: absolute;
@@ -738,7 +780,15 @@ tbody tr:nth-child(even) {
     inset: 0;
     margin: auto;
     cursor: pointer;
-    transition: opacity .1s, transform .4s
+    transition: opacity .1s, transform .4s;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 480px) {
+    .nav__burger,
+    .nav__close {
+        font-size: 1.8rem;
+    }
 }
 
 .nav__close {
@@ -751,17 +801,24 @@ tbody tr:nth-child(even) {
     width: auto;
 }
 
+@media screen and (max-width: 768px) {
+    .nav__data img {
+        height: 55px;
+        max-height: 55px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .nav__data img {
-        height: 40px;
-        max-height: 40px;
+        height: 60px;
+        max-height: 60px;
     }
 }
 
 @media screen and (max-width: 360px) {
     .nav__data img {
-        height: 35px;
-        max-height: 35px;
+        height: 45px;
+        max-height: 45px;
     }
 }
 
@@ -806,12 +863,14 @@ tbody tr:nth-child(even) {
     .dropdown__link,
     .nav__link {
         color: #fff;
-        background-color: var(--main-color)
+        background-color: var(--main-color);
+        font-size: 22px;
+        padding: 1.2rem 1.5rem;
     }
 
     .dropdown__sublink {
-        font-size: 18px;
-        padding: 1.25rem 1.2rem
+        font-size: 20px;
+        padding: 1.2rem 1.5rem;
     }
 
     .dropdown__arrow {
@@ -819,13 +878,26 @@ tbody tr:nth-child(even) {
     }
 }
 
-.nav__logo {
-    font-size: 20px
+@media screen and (max-width: 480px) {
+    .dropdown__link,
+    .nav__link {
+        font-size: 24px;
+        padding: 1.4rem 1.6rem;
+    }
+
+    .dropdown__sublink {
+        font-size: 22px;
+        padding: 1.4rem 1.6rem;
+    }
 }
 
-.nav__burger,
-.nav__close {
-    font-size: 1.5rem
+@media screen and (max-width: 360px) {
+    .dropdown__link,
+    .dropdown__sublink,
+    .nav__link {
+        font-size: 18px;
+        padding: 1rem 1rem;
+    }
 }
 
 .nav__link,
@@ -835,7 +907,6 @@ tbody tr:nth-child(even) {
 
 .nav__link {
     color: #fff;
-    font-size: 1rem;
     font-weight: var(--font-semi-bold);
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -999,9 +1070,9 @@ tbody tr:nth-child(even) {
 
 @media screen and (max-width: 480px) {
     .prev, .next {
-        padding: 8px !important;
-        font-size: 14px !important;
-        margin-top: -18px !important;
+        padding: 10px !important;
+        font-size: 16px !important;
+        margin-top: -20px !important;
     }
 }
 
@@ -1022,23 +1093,30 @@ tbody tr:nth-child(even) {
 
 @media screen and (max-width: 480px) {
     .dot {
+        height: 14px;
+        width: 14px;
+        margin: 0 4px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .dot {
         height: 12px;
         width: 12px;
         margin: 0 3px;
     }
 }
 
-@media screen and (max-width: 360px) {
-    .dot {
-        height: 10px;
-        width: 10px;
-        margin: 0 2px;
-    }
-}
-
 .dots-container {
     text-align: center;
-    margin-top: 20px
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+    .dots-container {
+        font-size: 18px;
+    }
 }
 
 .mySlides.fade {
@@ -1066,18 +1144,26 @@ tbody tr:nth-child(even) {
     flex: 1;
     min-width: auto;
     margin-bottom: 1.5rem;
-    padding-right: 20px
+    padding-right: 20px;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-section {
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .footer-section {
+        font-size: 20px;
         padding-right: 10px;
     }
 }
 
 .footer-section p {
     color: purple;
-    font-size: .9rem;
+    font-size: inherit;
     line-height: 1.6;
     margin-bottom: .8rem
 }
@@ -1085,7 +1171,8 @@ tbody tr:nth-child(even) {
 .footer-section ul {
     color: purple;
     list-style: none;
-    padding: 0
+    padding: 0;
+    font-size: inherit;
 }
 
 .footer-section ul li {
@@ -1119,6 +1206,13 @@ tbody tr:nth-child(even) {
     transition: background-color .3s
 }
 
+@media screen and (max-width: 480px) {
+    .social-icons a {
+        width: 44px;
+        height: 44px;
+    }
+}
+
 .social-icons a:hover {
     background-color: var(--white-color);
     color: var(--main-color)
@@ -1135,6 +1229,12 @@ tbody tr:nth-child(even) {
 .footer-bottom p {
     font-size: 1.2rem;
     color: #3f0336
+}
+
+@media screen and (max-width: 480px) {
+    .footer-bottom p {
+        font-size: 1.4rem;
+    }
 }
 
 @media screen and (max-width:340px) {
@@ -1261,6 +1361,18 @@ tbody tr:nth-child(even) {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .1)
 }
 
+@media screen and (max-width: 768px) {
+    .gallery-title {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-title {
+        font-size: 2.2em;
+    }
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1315,7 +1427,20 @@ tbody tr:nth-child(even) {
 
 .orchidist-info {
     padding: 20px;
-    text-align: center
+    text-align: center;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .orchidist-info {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .orchidist-info {
+        font-size: 22px;
+    }
 }
 
 .orchidist-name {
@@ -1344,7 +1469,20 @@ tbody tr:nth-child(even) {
     border-radius: 8px;
     color: #6c5ce7;
     font-style: italic;
-    border-left: 4px solid #6c5ce7
+    border-left: 4px solid #6c5ce7;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .placeholder-note {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .placeholder-note {
+        font-size: 20px;
+    }
 }
 
 @media (max-width:768px) {
@@ -1357,40 +1495,32 @@ tbody tr:nth-child(even) {
         height: 150px;
         font-size: 2.5em
     }
-
-    .gallery-title {
-        font-size: 1.8em
-    }
 }
 
 @media screen and (max-width: 480px) {
     .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 12px;
     }
 
     .orchidist-photo {
-        height: 120px;
-        font-size: 2rem;
-    }
-
-    .gallery-title {
-        font-size: 1.5em;
+        height: 130px;
+        font-size: 2.2rem;
     }
 }
 
 @media screen and (max-width: 360px) {
     .gallery-grid {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 10px;
     }
 
     .orchidist-photo {
-        height: 100px;
-        font-size: 1.5rem;
+        height: 120px;
+        font-size: 1.8rem;
     }
 
     .gallery-title {
-        font-size: 1.3em;
+        font-size: 1.8em;
     }
 }
