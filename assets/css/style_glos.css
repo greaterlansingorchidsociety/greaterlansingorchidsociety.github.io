@@ -15,7 +15,7 @@
 }
 
 :root {
-    --main-color: hsla(275, 91, 13, 1);
+    --main-color: hsla(275, 91%, 13%, 1);
     --main-color-light: hsl(271, 96%, 91%);
     --main-color-lighten: hsl(313, 92%, 95%);
     --body-font: 'Agu Display', sans-serif;
@@ -1056,7 +1056,8 @@ tbody tr:nth-child(even) {
 .month-container {
     flex: 1 0 calc(33.333% - 20px);
     margin: 10px;
-    border: 1px solid #ddd;
+    background-color: #3d0a52;
+    border: 1px solid #3d0a52;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(38, 7, 7, 0.1);
@@ -1131,32 +1132,3 @@ tbody tr:nth-child(even) {
 }
 
 .intro {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-left: 4px solid var(--main-color);
-    font-size: 16px;
-}
-
-@media screen and (max-width: 480px) {
-    .intro {
-        font-size: 18px;
-    }
-}
-
-.placeholder-note {
-    text-align: center;
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(108, 92, 231, 0.1);
-    border-radius: 8px;
-    color: #6c5ce7;
-    font-style: italic;
-    border-left: 4px solid #6c5ce7;
-    font-size: 16px;
-}
-
-@media screen and (max-width: 480px) {
-    .placeholder-note {
-        font-size: 18px;
-    }
-}
