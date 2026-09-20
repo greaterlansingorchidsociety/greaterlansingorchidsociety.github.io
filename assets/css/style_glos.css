@@ -767,6 +767,8 @@ tbody tr:nth-child(even) {
     float: right;
     font-weight: 700;
     margin-left: 10px;
+    background-color: var(--main-color);
+    color: var(--main-color-light);
 }
 
 .year-content {
