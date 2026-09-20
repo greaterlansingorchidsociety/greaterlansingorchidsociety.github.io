@@ -100,32 +100,26 @@ ul {
     box-shadow: 0 2px 16px rgba(14, 20, 32, 0.3);
 }
 
+:root { --white-color: #fff; --nav-height: 3.5rem; }
+
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: fixed; top: 0; left: 0; width: 100%;
+  height: var(--nav-height);
+  background-color: #1a1a2e;
+  padding-inline: 1.5rem;
   z-index: 1000;
 }
 
-.nav__data {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.nav__logo {
-    display: inline-flex;
-    align-items: center;
-    color: var(--white-color);
-    font-weight: 600;
-    font-size: 18px;
-    white-space: nowrap;
-    -webkit-tap-highlight-color: transparent;
-}
+body { padding-top: var(--nav-height); }
 
 @media screen and (max-width: 768px) {
     .nav__logo {
