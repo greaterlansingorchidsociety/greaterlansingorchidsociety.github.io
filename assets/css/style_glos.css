@@ -15,7 +15,7 @@
 }
 
 :root {
-    --main-color: hsla(275, 91, 13, 1);
+    --main-color: hsla(275, 91%, 13%, 1);
     --main-color-light: hsl(271, 96%, 91%);
     --main-color-lighten: hsl(313, 92%, 95%);
     --body-font: 'Agu Display', sans-serif;
@@ -23,11 +23,14 @@
     --normal-font-size: 1rem;
     --font-regular: 600;
     --font-semi-bold: 800;
-    --header-height: 3.5rem;
+    /* rem is 10px here (Bootstrap sets the root size), so 5.5rem = 55px, tall enough for the 50px logo */
+    --header-height: 5.5rem;
     --white-color: #fff;
     --body-color: hsl(0, 0%, 100%);
     --z-tooltip: 10;
-    --z-fixed: 100
+    --z-fixed: 100;
+    --dropdown-color: #c7005a;
+    --dropdown-color-hover: #6f0b39;
 }
 
 a {
@@ -98,6 +101,82 @@ ul {
     box-shadow: 0 2px 16px rgba(14, 20, 32, 0.3);
 }
 
+/* Navigation overrides */
+:root {
+    --dropdown-color: #8C0F48;
+    --dropdown-color-hover: #6f0b39;
+}
+
+/* Keep the fixed navigation below device safe areas so it is fully visible. */
+.header {
+    top: env(safe-area-inset-top, 0px);
+}
+
+/* Keep the logo, menu, and menu text vertically aligned. */
+.nav {
+    display: flex;
+    align-items: center;
+    min-height: var(--nav-height, var(--header-height, 3.5rem));
+    padding-top: env(safe-area-inset-top, 0px);
+}
+
+.nav__data,
+.nav__menu,
+.nav__list {
+    align-items: center;
+}
+
+.nav__data {
+    display: flex;
+    min-height: 100%;
+}
+
+.nav__list {
+    display: flex;
+}
+
+.nav__link,
+.dropdown__link {
+    line-height: 1.2;
+}
+
+/* Use a dark pink background for every navigation dropdown. */
+.dropdown__menu {
+    background-color: var(--dropdown-color);
+}
+
+.dropdown__link {
+    background-color: var(--dropdown-color);
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown__link:hover,
+.dropdown__item:hover .dropdown__link {
+    background-color: var(--dropdown-color-hover);
+    color: #fff;
+}
+
+@media screen and (min-width: 1119px) {
+    .nav {
+        height: var(--nav-height, var(--header-height, 3.5rem));
+        padding-top: 0;
+    }
+
+    .nav__list {
+        align-items: center;
+    }
+
+    .nav__link {
+        display: inline-flex;
+        align-items: center;
+        min-height: var(--nav-height, var(--header-height, 3.5rem));
+    }
+
+    .dropdown__item .nav__link {
+        display: inline-flex;
+    }
+}
 .nav {
     height: var(--header-height);
     display: flex;
@@ -223,7 +302,7 @@ ul {
     left: 0;
     top: 100%;
     width: 100%;
-    height: calc(100vh - 3.5rem);
+    height: calc(100vh - var(--header-height));
     overflow-y: auto;
     opacity: 0;
     visibility: hidden;
@@ -1047,30 +1126,30 @@ tbody tr:nth-child(even) {
     margin: 0 auto;
 }
 
+/* Months flow in a two-column grid; the row wrappers are dropped from layout
+   so every month lines up on the same grid regardless of the HTML row groups */
+.calendar-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
 .calendar-row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    display: contents;
 }
 
 .month-container {
-    flex: 1 0 calc(33.333% - 20px);
-    margin: 10px;
+    margin: 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(38, 7, 7, 0.1);
 }
 
-@media screen and (max-width: 900px) {
-    .month-container {
-        flex: 1 0 calc(50% - 20px);
-    }
-}
-
+/* Mobile: one month per row */
 @media screen and (max-width: 600px) {
-    .month-container {
-        flex: 1 0 calc(100% - 20px);
+    .calendar-container {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
