@@ -1144,6 +1144,7 @@ tbody tr:nth-child(even) {
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
+    background-color: #800080; 
     box-shadow: 0 2px 5px rgba(38, 7, 7, 0.1);
 }
 
