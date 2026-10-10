@@ -720,6 +720,7 @@ tbody tr:nth-child(even) {
 
 /* YEAR SECTIONS */
 .year-section {
+    font-family: var(--body-font); /* Bootstrap's Helvetica would otherwise override the site font */
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -777,6 +778,37 @@ tbody tr:nth-child(even) {
     max-height: fit-content;
     overflow: visible;
     padding: 1rem;
+}
+
+/* Individual newsletter links use Arial */
+.news-page .year-content a {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Newsletter archive on phones: smaller heading, tighter year bars, larger PDF tap targets */
+@media screen and (max-width: 600px) {
+    .news-page h1 {
+        font-size: 28px;
+    }
+
+    .news-page .year-header {
+        font-size: 18px;
+        padding: 14px 16px;
+    }
+
+    .news-page .year-header h2 {
+        font-size: 20px;
+    }
+
+    .news-page .year-content a {
+        display: inline-block;
+        padding: 8px 0;
+        font-size: 16px;
+    }
+
+    .news-page .year-content li {
+        margin-bottom: 4px;
+    }
 }
 
 /* FOOTER */
