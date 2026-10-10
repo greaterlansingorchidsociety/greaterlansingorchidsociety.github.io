@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Agu+Display&family=Sedan:wght@400;600&display=swap);
 
+/* KEYFRAME ROTATING IMAGES */
 @keyframes fade {
     0% {
         opacity: .4
@@ -28,8 +29,8 @@
     --body-color: hsl(0, 0%, 100%);
     --z-tooltip: 10;
     --z-fixed: 100;
-    --dropdown-color: #c7005a;
-    --dropdown-color-hover: #6f0b39;
+    --dropdown-color: --main-color-light: hsl(271, 96%, 91%);
+    --dropdown-color-hover: --main-color-light: hsl(275, 96%, 91%);
 }
 
 a {
