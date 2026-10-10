@@ -134,6 +134,7 @@ ul {
 
 .nav__list {
     display: flex;
+    margin: 0; /* Bootstrap adds a 10px bottom margin to every <ul>, which pushes the links up */
 }
 
 .nav__link,
